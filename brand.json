@@ -1,6 +1,8 @@
 {
   "name": "Discordy",
-  "tagline": "Chat, call and share your screen. Privately.",
+  "tagline": "Group chat that's all fun and games",
+  "heroTitle": "Your place to talk",
+  "heroSub": "Whether you're part of a school club, a gaming group, a worldwide art community, or just a handful of friends, {{name}} makes it easy to talk every day and hang out more often.",
   "description": "{{name}} is a community chat platform with text, voice and video calls up to 4K, servers, roles, moderation and end-to-end encrypted direct messages.",
   "domain": "discordy.voics.nl",
   "logo": "assets/logo.svg",
@@ -8,6 +10,14 @@
     "accent": "#6c63ff",
     "accentStrong": "#5148e6",
     "accentContrast": "#ffffff",
+    "accentDeep": "#2b1fa6",
+    "accentInk": "#1b1370",
+    "accentGlow": "#8f89ff",
+    "highlight": "#ffd84d",
+    "pink": "#ff6fb1",
+    "mint": "#3ddc97",
+    "sky": "#5ec8ff",
+    "tintLight": "#eeedff",
     "bgDark": "#0e0f14",
     "surfaceDark": "#171923",
     "textDark": "#eceef6",
@@ -17,16 +27,21 @@
     "textLight": "#15161d",
     "mutedLight": "#555a70"
   },
+  "fonts": {
+    "heading": "Unbounded",
+    "body": "Inter"
+  },
   "downloads": {
-    "available": false,
+    "available": true,
     "releasesUrl": "",
-    "windows": "",
+    "windows": "https://discordy-updates.voics.nl/Discordy-Setup-latest.exe",
     "macos": "",
     "linux": "",
     "requestAccessUrl": "mailto:hello@voics.nl?subject=Early%20access"
   },
   "links": {
-    "contact": "mailto:hello@voics.nl"
+    "contact": "mailto:hello@voics.nl",
+    "support": "mailto:hello@voics.nl?subject=Support"
   },
   "year": 2026
 }

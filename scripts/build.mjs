@@ -1,25 +1,12 @@
 // Renders src/ into dist/ by substituting {{path.to.value}} tokens from brand.json.
 // This is the only place brand values enter the site; src/ contains no hard-coded brand strings.
-import { readFileSync, writeFileSync, mkdirSync, cpSync, rmSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, cpSync, rmSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = join(fileURLToPath(import.meta.url), '..', '..');
 const brand = JSON.parse(readFileSync(join(root, 'brand.json'), 'utf8'));
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-
-const d = brand.downloads ?? {};
-const btn = (href, label, ghost) => `<a class="btn${ghost ? ' ghost' : ''}" href="${esc(href)}">${esc(label)}</a>`;
-let downloadBlock;
-if (d.available) {
-  const parts = [['windows', 'Windows'], ['macos', 'macOS'], ['linux', 'Linux']].filter(([k]) => d[k]).map(([k, l]) => btn(d[k], l));
-  if (!parts.length && d.releasesUrl) parts.push(btn(d.releasesUrl, 'Download'));
-  downloadBlock = '<p class="lead">Get the desktop client.</p><div class="cta">' + parts.join('') + '</div>' +
-    (d.releasesUrl && parts.length ? `<p><a href="${esc(d.releasesUrl)}">All releases</a></p>` : '');
-} else {
-  downloadBlock = '<p class="lead">The desktop client is coming soon. Request early access and we will get in touch.</p><div class="cta">' +
-    btn(d.requestAccessUrl || brand.links.contact, 'Request access') + '</div>';
-}
 
 // Flatten brand.json into dotted keys; brand strings may themselves contain {{tokens}}.
 const flat = {};
@@ -31,7 +18,6 @@ const resolve = (k, depth = 0) => {
   return flat[k].replace(/\{\{([\w.]+)\}\}/g, (_, n) => resolve(n, depth + 1));
 };
 const render = (s) => s.replace(/\{\{([\w.]+)\}\}/g, (m, k) => {
-  if (k === 'downloadBlock') return downloadBlock;
   if (!(k in flat)) throw new Error('Unknown token ' + m);
   return k.startsWith('colors.') ? resolve(k) : esc(resolve(k));
 });
@@ -47,4 +33,9 @@ mkdirSync(out, { recursive: true });
     else cpSync(p, join(out, r));
   }
 })(join(root, 'src'), '');
+// The invite landing page is owned by the gitops repo; publish it together with the site so a deploy
+// never leaves a different /invite/ behind. Skipped (with a warning) when the sibling checkout is absent (e.g. CI).
+const invite = join(root, '..', 'gitops', 'site', 'invite', 'index.html');
+if (existsSync(invite)) { mkdirSync(join(out, 'invite'), { recursive: true }); cpSync(invite, join(out, 'invite', 'index.html')); }
+else console.warn('warning: ../gitops/site/invite/index.html not found; dist/invite not populated');
 console.log(`Built ${brand.name} -> dist/`);
