@@ -3,6 +3,7 @@ name: website ci
 on:
   push:
     branches: [main, develop, "release/**", "hotfix/**", "feature/**"]
+    tags: ["v*"]
   pull_request:
 
 permissions:
@@ -31,3 +32,15 @@ jobs:
         with:
           name: site-dist
           path: dist
+
+  deploy:
+    name: Publish to discordy.voics.nl
+    # main and release tags go live; other branches only build. The invite page in the same bucket is
+    # published by the gitops repo and is left alone (minio-publish never removes objects).
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v'))
+    needs: [build]
+    uses: discordy-voics/.github/.github/workflows/minio-publish.yml@main
+    with:
+      artifact: site-dist
+      bucket: discordy-site
+      short-cache: index.html
