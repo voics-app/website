@@ -14,8 +14,10 @@ Static marketing site served at https://discordy.voics.nl (bucket `discordy-site
 3. `npm run build && npm run check`, then deploy.
 
 ## Downloads
-While `downloads.available` is `false` the page shows a "Request access" call to action (`downloads.requestAccessUrl`).
-Set `available` to `true` and fill `windows` / `macos` / `linux` (and/or `releasesUrl`) once public releases exist.
+All Download buttons link directly to `downloads.windows` in brand.json (stable URL of the latest installer). macOS/Linux are shown as coming soon.
+
+## Invite page
+`npm run build` copies `../gitops/site/invite/index.html` into `dist/invite/index.html` so it is always published with the site (skipped with a warning if the gitops checkout is absent).
 
 ## Deploy
 ```
