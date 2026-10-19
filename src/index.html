@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{name}} | {{tagline}}</title>
+<meta name="description" content="{{description}}">
+<meta name="theme-color" content="{{colors.accent}}">
+<meta property="og:title" content="{{name}}">
+<meta property="og:description" content="{{tagline}}">
+<meta property="og:url" content="https://{{domain}}/">
+<link rel="icon" href="{{logo}}" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><div class="wrap">
+  <a class="brand" href="#top"><img src="{{logo}}" alt="" width="32" height="32"><span>{{name}}</span></a>
+  <nav aria-label="Main"><ul>
+    <li><a href="#features">Features</a></li><li><a href="#privacy">Privacy</a></li><li><a href="#voice">Voice &amp; video</a></li><li><a href="#download">Download</a></li>
+  </ul></nav>
+  <a class="btn" href="#download">Get {{name}}</a>
+</div></header>
+<main id="main">
+<div class="hero" id="top"><div class="wrap">
+  <h1>{{tagline}}</h1>
+  <p>{{description}}</p>
+  <div class="cta"><a class="btn" href="#download">Get {{name}}</a><a class="btn ghost" href="#features">See features</a></div>
+</div></div>
+
+<section id="features"><div class="wrap">
+  <h2>Everything your community needs</h2>
+  <p class="lead">Text, voice and video in one place, built for small friend groups and large servers alike.</p>
+  <div class="grid">
+    <div class="card"><h3>Servers and channels</h3><p>Organize your community into servers with text and voice channels and rich messages.</p></div>
+    <div class="card"><h3>Roles and permissions</h3><p>Fine-grained roles let you decide who can read, write, speak, stream or manage.</p></div>
+    <div class="card"><h3>Moderation tools</h3><p>Kicks, bans, timeouts and audit trails keep your space safe and under your control.</p></div>
+    <div class="card"><h3>Desktop client</h3><p>A fast desktop app built with Electron, with notifications and push to talk.</p></div>
+  </div>
+</div></section>
+
+<section id="privacy" class="alt"><div class="wrap">
+  <h2>Private by design</h2>
+  <p class="lead">Your conversations belong to you. Direct messages use end-to-end encryption, so only the people in the conversation can read them.</p>
+  <div class="grid">
+    <div class="card"><h3>Ephemeral DMs</h3><p>End-to-end encrypted messages that disappear on your schedule and are not kept on our servers.</p></div>
+    <div class="card"><h3>Peer-to-peer DMs</h3><p>Send messages directly between devices when both sides are online, without a server in the middle.</p></div>
+    <div class="card"><h3>Your keys, your devices</h3><p>Encryption keys are generated and stored on your devices.</p></div>
+  </div>
+</div></section>
+
+<section id="voice"><div class="wrap">
+  <h2>Voice and video that keep up</h2>
+  <p class="lead">Crisp calls with camera and screen share, tuned for gaming, studying and working together.</p>
+  <div class="grid">
+    <div class="card"><h3>Camera and screen share</h3><p>Share your face, a window or your whole screen with everyone in the call.</p></div>
+    <div class="card"><h3>Up to 4K</h3><p>Stream at up to 4K resolution when your connection and hardware allow it.</p></div>
+    <div class="card"><h3>Low latency</h3><p>Real-time media over WebRTC with relay fallback so calls connect on strict networks.</p></div>
+  </div>
+  <p style="margin-top:24px"><span class="pill">Camera</span><span class="pill">Screen share</span><span class="pill">4K</span></p>
+</div></section>
+
+<section id="download" class="alt dl"><div class="wrap">
+  <h2>Download {{name}}</h2>
+  {{downloadBlock}}
+</div></section>
+</main>
+<footer><div class="wrap">
+  <span>&copy; {{year}} {{name}}</span>
+  <span><a href="{{links.contact}}">Contact</a></span>
+</div></footer>
+</body>
+</html>

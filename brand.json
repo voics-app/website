@@ -1,0 +1,32 @@
+{
+  "name": "Discordy",
+  "tagline": "Chat, call and share your screen. Privately.",
+  "description": "{{name}} is a community chat platform with text, voice and video calls up to 4K, servers, roles, moderation and end-to-end encrypted direct messages.",
+  "domain": "discordy.voics.nl",
+  "logo": "assets/logo.svg",
+  "colors": {
+    "accent": "#6c63ff",
+    "accentStrong": "#5148e6",
+    "accentContrast": "#ffffff",
+    "bgDark": "#0e0f14",
+    "surfaceDark": "#171923",
+    "textDark": "#eceef6",
+    "mutedDark": "#a3a8bd",
+    "bgLight": "#f7f7fb",
+    "surfaceLight": "#ffffff",
+    "textLight": "#15161d",
+    "mutedLight": "#555a70"
+  },
+  "downloads": {
+    "available": false,
+    "releasesUrl": "",
+    "windows": "",
+    "macos": "",
+    "linux": "",
+    "requestAccessUrl": "mailto:hello@voics.nl?subject=Early%20access"
+  },
+  "links": {
+    "contact": "mailto:hello@voics.nl"
+  },
+  "year": 2026
+}
