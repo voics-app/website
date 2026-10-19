@@ -1,0 +1,33 @@
+name: website ci
+
+on:
+  push:
+    branches: [main, develop, "release/**", "hotfix/**", "feature/**"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  gitflow:
+    name: Git-flow branch rules
+    if: github.event_name == 'pull_request'
+    uses: discordy-voics/.github/.github/workflows/gitflow-guard.yml@main
+
+  build:
+    name: Build and check static site
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Render site from brand.json
+        run: npm run build
+      - name: Check for hard-coded brand and unresolved tokens
+        run: npm run check
+      - name: Upload built site
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-dist
+          path: dist
