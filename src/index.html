@@ -5,69 +5,230 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{{name}} | {{tagline}}</title>
 <meta name="description" content="{{description}}">
-<meta name="theme-color" content="{{colors.accent}}">
-<meta property="og:title" content="{{name}}">
-<meta property="og:description" content="{{tagline}}">
+<meta name="theme-color" content="{{colors.accentDeep}}">
+<meta property="og:title" content="{{name}} | {{tagline}}">
+<meta property="og:description" content="{{description}}">
 <meta property="og:url" content="https://{{domain}}/">
 <link rel="icon" href="{{logo}}" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family={{fonts.heading}}:wght@700;800;900&family={{fonts.body}}:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="win" viewBox="0 0 24 24"><path fill="currentColor" d="M3 5.5l7.5-1v7H3zM11.5 4.4L21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></symbol>
+    <symbol id="apple" viewBox="0 0 24 24"><path fill="currentColor" d="M3 4h18v12H3zM2 18h20v2H2z"/></symbol>
+    <symbol id="tux" viewBox="0 0 24 24"><path fill="currentColor" d="M3 4h18a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm3 4l4 4-4 4 1.400 1.400L12.800 12 7.400 6.600zm6 7v2h6v-2z"/></symbol>
+    <symbol id="star" viewBox="0 0 24 24"><path d="M12 1l2.600 7.400L22 11l-7.400 2.600L12 21l-2.600-7.400L2 11l7.400-2.600z" fill="currentColor"/></symbol>
+    <symbol id="cloud" viewBox="0 0 200 100"><path fill="currentColor" d="M50 90a30 30 0 0 1-4-59.700A45 45 0 0 1 132 24a35 35 0 0 1 22 66z"/></symbol>
+    <symbol id="lock" viewBox="0 0 24 24"><path fill="currentColor" d="M7 10V7a5 5 0 0 1 10 0v3h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2zm2 0h6V7a3 3 0 0 0-6 0z"/></symbol>
+  </defs>
+</svg>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site"><div class="wrap">
-  <a class="brand" href="#top"><img src="{{logo}}" alt="" width="32" height="32"><span>{{name}}</span></a>
-  <nav aria-label="Main"><ul>
-    <li><a href="#features">Features</a></li><li><a href="#privacy">Privacy</a></li><li><a href="#voice">Voice &amp; video</a></li><li><a href="#download">Download</a></li>
-  </ul></nav>
-  <a class="btn" href="#download">Get {{name}}</a>
-</div></header>
+
+<header class="site" id="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="{{logo}}" alt="" width="40" height="40"><span>{{name}}</span></a>
+    <nav class="main" id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#download">Download</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#safety">Safety</a></li>
+        <li><a href="{{links.support}}">Support</a></li>
+      </ul>
+    </nav>
+    <a class="btn white sm" href="{{downloads.windows}}" download>Download</a>
+    <button class="menu-btn" id="menu" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span></span></button>
+  </div>
+</header>
+
 <main id="main">
-<div class="hero" id="top"><div class="wrap">
-  <h1>{{tagline}}</h1>
-  <p>{{description}}</p>
-  <div class="cta"><a class="btn" href="#download">Get {{name}}</a><a class="btn ghost" href="#features">See features</a></div>
-</div></div>
+<div class="hero">
+  <!-- decorative shapes -->
+  <svg class="deco float" style="left:-60px;top:120px;width:300px;color:#ffffff22" viewBox="0 0 200 100" aria-hidden="true"><use href="#cloud"/></svg>
+  <svg class="deco float b hide-s" style="right:-40px;top:200px;width:240px;color:#ffffff1c" viewBox="0 0 200 100" aria-hidden="true"><use href="#cloud"/></svg>
+  <svg class="deco float c" style="left:6%;top:46%;width:90px;color:var(--yellow)" viewBox="0 0 200 200" aria-hidden="true"><path fill="currentColor" d="M100 10c30 0 52 18 70 40s30 45 20 75-45 60-85 62-70-30-75-70S35 55 55 32 85 10 100 10z"/></svg>
+  <svg class="deco float b hide-s" style="right:7%;top:42%;width:110px;color:var(--pink)" viewBox="0 0 200 200" aria-hidden="true"><path fill="currentColor" d="M40 60C60 20 130 10 165 45s20 95-20 120-95 20-120-25S20 90 40 60z"/></svg>
+  <svg class="deco twinkle" style="left:18%;top:150px;width:34px;color:#fff" viewBox="0 0 24 24" aria-hidden="true"><use href="#star"/></svg>
+  <svg class="deco twinkle hide-s" style="right:22%;top:130px;width:26px;color:var(--yellow)" viewBox="0 0 24 24" aria-hidden="true"><use href="#star"/></svg>
+  <svg class="deco twinkle" style="right:12%;top:330px;width:40px;color:#fff" viewBox="0 0 24 24" aria-hidden="true"><use href="#star"/></svg>
+  <svg class="deco twinkle hide-s" style="left:30%;top:62%;width:22px;color:var(--sky)" viewBox="0 0 24 24" aria-hidden="true"><use href="#star"/></svg>
+  <svg class="deco float c hide-s" style="left:3%;bottom:22%;width:70px" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="28" fill="none" stroke="var(--mint)" stroke-width="10"/></svg>
+  <svg class="deco float hide-s" style="right:4%;bottom:26%;width:80px" viewBox="0 0 80 80" aria-hidden="true"><path d="M10 60L40 12l30 48z" fill="var(--sky)"/></svg>
 
-<section id="features"><div class="wrap">
-  <h2>Everything your community needs</h2>
-  <p class="lead">Text, voice and video in one place, built for small friend groups and large servers alike.</p>
-  <div class="grid">
-    <div class="card"><h3>Servers and channels</h3><p>Organize your community into servers with text and voice channels and rich messages.</p></div>
-    <div class="card"><h3>Roles and permissions</h3><p>Fine-grained roles let you decide who can read, write, speak, stream or manage.</p></div>
-    <div class="card"><h3>Moderation tools</h3><p>Kicks, bans, timeouts and audit trails keep your space safe and under your control.</p></div>
-    <div class="card"><h3>Desktop client</h3><p>A fast desktop app built with Electron, with notifications and push to talk.</p></div>
+  <div class="wrap">
+    <h1>{{heroTitle}}</h1>
+    <p class="sub">{{heroSub}}</p>
+    <div class="ctas">
+      <a class="btn white" href="{{downloads.windows}}" download><svg aria-hidden="true"><use href="#win"/></svg>Download for Windows</a>
+      <a class="btn dark" href="#features">Learn more</a>
+    </div>
+
+    <div class="app rv" aria-hidden="true">
+      <div class="bar"><i></i><i></i><i></i></div>
+      <div class="body">
+        <div class="servers">
+          <b class="on" style="background:none"><img src="{{logo}}" alt="" width="44" height="44"></b>
+          <b style="background:var(--pink)">GG</b><b style="background:#2fb67c">ART</b><b style="background:#e8892b">DEV</b><b style="background:#2f9fd9">+</b>
+        </div>
+        <div class="chans">
+          <h4>Text channels</h4>
+          <p># welcome</p><p class="on"># general</p><p># clips</p><p># study-room</p>
+          <h4 style="margin-top:18px">Voice</h4>
+          <p class="v"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M12 15a4 4 0 0 0 4-4V6a4 4 0 0 0-8 0v5a4 4 0 0 0 4 4zm6-4a6 6 0 0 1-12 0H4a8 8 0 0 0 7 7.900V22h2v-3.100A8 8 0 0 0 20 11z"/></svg>Lounge</p>
+          <p class="v"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M12 15a4 4 0 0 0 4-4V6a4 4 0 0 0-8 0v5a4 4 0 0 0 4 4zm6-4a6 6 0 0 1-12 0H4a8 8 0 0 0 7 7.900V22h2v-3.100A8 8 0 0 0 20 11z"/></svg>Game night</p>
+        </div>
+        <div class="chat">
+          <div class="msg"><div class="av" style="background:var(--pink)">MI</div><div><b>Mira</b><small>Today at 8:02 PM</small><span class="t">game night in ten? bringing snacks</span></div></div>
+          <div class="msg"><div class="av" style="background:#2fb67c">JO</div><div><b>Jonas</b><small>Today at 8:03 PM</small><span class="t">already in the lounge, come join</span></div></div>
+          <div class="msg"><div class="av" style="background:#e8892b">SA</div><div><b>Sam</b><small>Today at 8:04 PM</small><span class="t">sharing my screen in 4K, you have to see this</span></div></div>
+          <div class="vtiles">
+            <div class="vt sp" style="background:linear-gradient(135deg,#5a52ff,#2b1fa6)"><div class="av" style="background:var(--pink)">MI</div><em>Mira</em></div>
+            <div class="vt" style="background:linear-gradient(135deg,#1fa37a,#0f5d4a)"><div class="av" style="background:#2fb67c">JO</div><em>Jonas</em></div>
+            <div class="vt" style="background:linear-gradient(135deg,#e8892b,#a24c10)"><div class="av" style="background:#e8892b">SA</div><em>Sam</em></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <svg class="hero-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true" style="height:40px"><path d="M0 60V30Q360 0 720 30T1440 30V60z" fill="var(--bg)"/></svg>
+</div>
+
+<section class="feat" id="features"><div class="wrap split">
+  <div class="art rv l">
+    <svg class="blob" style="width:420px;left:50%;top:50%;margin:-210px 0 0 -210px;color:#ddd9ff" viewBox="0 0 200 200" aria-hidden="true"><path fill="currentColor" d="M40 60C60 20 130 10 165 45s20 95-20 120-95 20-120-25S20 90 40 60z"/></svg>
+    <div class="stage violet" aria-hidden="true">
+      <div class="pvt">
+        <div class="vt sp"><div class="av" style="background:var(--pink)">MI</div><em>Mira</em></div>
+        <div class="vt"><div class="av" style="background:#2fb67c">JO</div><em>Jonas</em></div>
+        <div class="vt"><div class="av" style="background:#e8892b">SA</div><em>Sam</em></div>
+        <div class="vt"><div class="av" style="background:#2f9fd9">KI</div><em>Kim</em></div>
+      </div>
+    </div>
+  </div>
+  <div class="rv r">
+    <span class="eyebrow">Voice and video</span>
+    <h2>Hang out in voice, no scheduling</h2>
+    <p>Drop into a voice channel whenever you feel like it. Friends see who is around and can pop in, no invites and no calendar needed. Crisp audio, low latency, and video when you want it.</p>
+    <ul class="checks"><li>Push to talk and noise suppression</li><li>Camera on, camera off, your call</li><li>Works on strict networks with relay fallback</li></ul>
   </div>
 </div></section>
 
-<section id="privacy" class="alt"><div class="wrap">
-  <h2>Private by design</h2>
-  <p class="lead">Your conversations belong to you. Direct messages use end-to-end encryption, so only the people in the conversation can read them.</p>
-  <div class="grid">
-    <div class="card"><h3>Ephemeral DMs</h3><p>End-to-end encrypted messages that disappear on your schedule and are not kept on our servers.</p></div>
-    <div class="card"><h3>Peer-to-peer DMs</h3><p>Send messages directly between devices when both sides are online, without a server in the middle.</p></div>
-    <div class="card"><h3>Your keys, your devices</h3><p>Encryption keys are generated and stored on your devices.</p></div>
+<section class="feat"><div class="wrap split rev">
+  <div class="art rv r">
+    <svg class="blob" style="width:420px;left:50%;top:50%;margin:-210px 0 0 -210px;color:#ffe9a6" viewBox="0 0 200 200" aria-hidden="true"><path fill="currentColor" d="M100 10c30 0 52 18 70 40s30 45 20 75-45 60-85 62-70-30-75-70S35 55 55 32 85 10 100 10z"/></svg>
+    <div class="stage night" aria-hidden="true">
+      <div class="mon"><span class="badge">4K</span>
+        <div class="ln" style="width:60%"></div><div class="ln" style="width:80%;background:#3b3f66"></div><div class="ln" style="width:45%"></div><div class="ln" style="width:70%;background:#3b3f66"></div>
+        <div class="pip"><div class="av" style="background:var(--yellow);color:#2a2000">SA</div></div>
+      </div><div class="stand"></div>
+    </div>
+  </div>
+  <div class="rv l">
+    <span class="eyebrow">Screen share</span>
+    <h2>Share your screen in up to 4K</h2>
+    <p>Stream a game, walk through a project or watch something together. Pick a window or your whole display and share it at the quality your connection and hardware can handle.</p>
+    <ul class="checks"><li>Up to 4K resolution</li><li>Camera and screen at the same time</li><li>One click to start, one click to stop</li></ul>
   </div>
 </div></section>
 
-<section id="voice"><div class="wrap">
-  <h2>Voice and video that keep up</h2>
-  <p class="lead">Crisp calls with camera and screen share, tuned for gaming, studying and working together.</p>
-  <div class="grid">
-    <div class="card"><h3>Camera and screen share</h3><p>Share your face, a window or your whole screen with everyone in the call.</p></div>
-    <div class="card"><h3>Up to 4K</h3><p>Stream at up to 4K resolution when your connection and hardware allow it.</p></div>
-    <div class="card"><h3>Low latency</h3><p>Real-time media over WebRTC with relay fallback so calls connect on strict networks.</p></div>
+<section class="feat" id="privacy"><div class="wrap split">
+  <div class="art rv l">
+    <svg class="blob" style="width:420px;left:50%;top:50%;margin:-210px 0 0 -210px;color:#ffd0e6" viewBox="0 0 200 200" aria-hidden="true"><path fill="currentColor" d="M40 60C60 20 130 10 165 45s20 95-20 120-95 20-120-25S20 90 40 60z"/></svg>
+    <div class="stage rose" aria-hidden="true">
+      <div class="bubble in">are we still on for tonight?</div>
+      <div class="bubble out">yes! only you can read this</div>
+      <div class="bubble in">love that. see you in voice</div>
+      <div class="lock"><svg width="18" height="18" viewBox="0 0 24 24"><use href="#lock"/></svg>End-to-end encrypted</div>
+    </div>
   </div>
-  <p style="margin-top:24px"><span class="pill">Camera</span><span class="pill">Screen share</span><span class="pill">4K</span></p>
+  <div class="rv r">
+    <span class="eyebrow">Privacy</span>
+    <h2>Your DMs, end-to-end encrypted</h2>
+    <p>Direct messages are encrypted on your devices, so only the people in the conversation can read them. Keys are generated and kept on your devices, and messages can disappear on your schedule.</p>
+    <ul class="checks"><li>Ephemeral messages that are not kept on our servers</li><li>Peer-to-peer delivery when both sides are online</li><li>Your keys never leave your devices</li></ul>
+  </div>
 </div></section>
 
-<section id="download" class="alt dl"><div class="wrap">
-  <h2>Download {{name}}</h2>
-  {{downloadBlock}}
+<section class="feat" id="safety"><div class="wrap">
+  <div class="split rev">
+    <div class="art rv r">
+      <svg class="blob" style="width:420px;left:50%;top:50%;margin:-210px 0 0 -210px;color:#c9f3e0" viewBox="0 0 200 200" aria-hidden="true"><path fill="currentColor" d="M100 10c30 0 52 18 70 40s30 45 20 75-45 60-85 62-70-30-75-70S35 55 55 32 85 10 100 10z"/></svg>
+      <div class="stage sunny" aria-hidden="true">
+        <div class="members">
+          <h4>Admins, 2</h4>
+          <div class="member"><div class="av" style="background:var(--accent)">AL</div><span style="color:var(--accent-strong)">Alex</span><i>Owner</i></div>
+          <div class="member"><div class="av" style="background:var(--pink)">MI</div><span style="color:#d6358a">Mira</span><i>Moderator</i></div>
+          <h4 style="margin-top:12px">Members, 3</h4>
+          <div class="member"><div class="av" style="background:#2fb67c">JO</div><span>Jonas</span><i>Artist</i></div>
+          <div class="member"><div class="av" style="background:#e8892b">SA</div><span>Sam</span><i>Gamer</i></div>
+        </div>
+      </div>
+    </div>
+    <div class="rv l">
+      <span class="eyebrow">Safety</span>
+      <h2>Servers with roles and moderation</h2>
+      <p>Build a space for your friends, club or community. Roles decide who can read, write, speak, stream or manage, and moderation tools keep things friendly and under your control.</p>
+      <ul class="checks"><li>Fine-grained roles and permissions</li><li>Kicks, bans and timeouts with an audit trail</li><li>Text and voice channels organised your way</li></ul>
+    </div>
+  </div>
+  <div class="mini-grid">
+    <div class="mini rv"><div class="ico" style="background:var(--accent)"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg></div><h3>Rich messages</h3><p>Text, images and files with a fast, tidy chat experience.</p></div>
+    <div class="mini rv"><div class="ico" style="background:var(--pink)"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l9 4v6c0 5-3.800 9.300-9 10-5.200-.7-9-5-9-10V6z"/></svg></div><h3>Safe by default</h3><p>Granular permissions so people only get the access they need.</p></div>
+    <div class="mini rv"><div class="ico" style="background:#2fb67c"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M3 5h18v11H3zM8 19h8v2H8z"/></svg></div><h3>Desktop app</h3><p>A fast native-feeling client with notifications and push to talk.</p></div>
+    <div class="mini rv"><div class="ico" style="background:#e8892b"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg></div><h3>Low latency</h3><p>Real-time media tuned for gaming, studying and working together.</p></div>
+  </div>
 </div></section>
+
+<div class="cta-band" id="download">
+  <svg class="deco float" style="left:-50px;top:40px;width:260px;color:#ffffff20" viewBox="0 0 200 100" aria-hidden="true"><use href="#cloud"/></svg>
+  <svg class="deco float b" style="right:-30px;bottom:30px;width:220px;color:#ffffff1a" viewBox="0 0 200 100" aria-hidden="true"><use href="#cloud"/></svg>
+  <svg class="deco twinkle" style="left:14%;bottom:30%;width:36px;color:var(--yellow)" viewBox="0 0 24 24" aria-hidden="true"><use href="#star"/></svg>
+  <svg class="deco twinkle" style="right:16%;top:22%;width:30px;color:#fff" viewBox="0 0 24 24" aria-hidden="true"><use href="#star"/></svg>
+  <div class="wrap rv">
+    <h2>Ready to start the conversation?</h2>
+    <p>Grab the app, make a server in a minute and invite your people.</p>
+    <div class="ctas"><a class="btn white" href="{{downloads.windows}}" download><svg aria-hidden="true"><use href="#win"/></svg>Download for Windows</a></div>
+    <div class="soon">
+      <span><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#apple"/></svg>macOS <small>Coming soon</small></span>
+      <span><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#tux"/></svg>Linux <small>Coming soon</small></span>
+    </div>
+  </div>
+</div>
 </main>
-<footer><div class="wrap">
-  <span>&copy; {{year}} {{name}}</span>
-  <span><a href="{{links.contact}}">Contact</a></span>
+
+<footer class="site"><div class="wrap">
+  <div class="fgrid">
+    <div>
+      <a class="brand" href="#top"><img src="{{logo}}" alt="" width="40" height="40"><span>{{name}}</span></a>
+      <p style="margin:0 0 6px;max-width:22rem">{{tagline}}</p>
+      <span class="lang" aria-label="Language"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.900 9h-3a15 15 0 0 0-1.300-5.500A8 8 0 0 1 18.900 11zM12 4c.8 1 1.700 3.300 2 7h-4c.3-3.700 1.200-6 2-7zM4.100 13h3a15 15 0 0 0 1.300 5.500A8 8 0 0 1 4.100 13zm3-2h-3a8 8 0 0 1 4.300-5.500A15 15 0 0 0 7.100 11zM12 20c-.8-1-1.700-3.300-2-7h4c-.3 3.700-1.200 6-2 7zm2.600-1.500A15 15 0 0 0 15.900 13h3a8 8 0 0 1-4.300 5.500z"/></svg>English (US)</span>
+    </div>
+    <div><h4>Product</h4><ul>
+      <li><a href="#download">Download</a></li><li><a href="#features">Features</a></li><li><a href="#privacy">Privacy</a></li><li><a href="#safety">Safety</a></li></ul></div>
+    <div><h4>Company</h4><ul>
+      <li><a href="{{links.contact}}">Contact</a></li><li><a href="{{links.contact}}">Press</a></li><li><a href="{{links.contact}}">Jobs</a></li></ul></div>
+    <div><h4>Resources</h4><ul>
+      <li><a href="{{links.support}}">Support</a></li><li><a href="#safety">Safety center</a></li><li><a href="#privacy">Privacy</a></li><li><a href="{{links.contact}}">Feedback</a></li></ul></div>
+  </div>
+  <div class="legal"><span>&copy; {{year}} {{name}}. All rights reserved.</span><span>Made for friends, clubs and communities.</span></div>
 </div></footer>
+
+<script>
+(function(){
+  var h=document.querySelector('header.site'),nav=document.getElementById('nav'),m=document.getElementById('menu');
+  function sc(){h.classList.toggle('solid',window.scrollY>40)}
+  sc();window.addEventListener('scroll',sc,{passive:true});
+  m.addEventListener('click',function(){var o=nav.classList.toggle('open');m.setAttribute('aria-expanded',o);h.classList.toggle('menu',o)});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A'){nav.classList.remove('open');m.setAttribute('aria-expanded','false');h.classList.remove('menu')}});
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches){els.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+  els.forEach(function(e,i){e.style.transitionDelay=(e.classList.contains('mini')?(i%4)*80:0)+'ms';io.observe(e)});
+})();
+</script>
 </body>
 </html>
