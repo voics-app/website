@@ -1,0 +1,7 @@
+# Local gate: runs before every push so CI (GitHub-hosted minutes are budgeted) only repeats the cheap checks.
+# Install once: `make hooks` (needs lefthook: https://lefthook.dev/installation/). Skip once with LEFTHOOK=0 git push.
+pre-push:
+  parallel: false
+  commands:
+    check:
+      run: pnpm run check
