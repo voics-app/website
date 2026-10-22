@@ -2,12 +2,16 @@ name: website ci
 
 on:
   push:
-    branches: [main, develop, "release/**", "hotfix/**", "feature/**"]
+    branches: [main, develop, "release/**", "hotfix/**"]
     tags: ["v*"]
   pull_request:
 
 permissions:
   contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   gitflow:
@@ -17,7 +21,7 @@ jobs:
 
   build:
     name: Build and check static site
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.CI_RUNNER || 'ubuntu-latest' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

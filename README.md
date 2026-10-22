@@ -28,3 +28,7 @@ The script uploads `dist/` as a temporary ConfigMap and runs a Job (`pgsty/mc`, 
 
 ## CI
 `.github/workflows/ci.yml` builds and checks the site on every push and PR (GitHub-hosted runner) and uploads `dist` as an artifact.
+
+## Git hooks
+
+Tests run locally, not in CI. Install [lefthook](https://github.com/evilmartians/lefthook) once and run `lefthook install` to enable the pre-push hook in `lefthook.yml`: it runs this repository's lint and unit tests before every push. CI repeats only the slim gate on pull requests. Skip once with `LEFTHOOK=0 git push`.
