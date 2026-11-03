@@ -5,11 +5,11 @@ Static marketing site served at https://discordy.voics.nl (bucket `discordy-site
 ## Layout
 - `brand.json`: the single source of branding (name, tagline, description, domain, logo path, colors, download links, contact, year).
 - `src/`: HTML/CSS templates using `{{tokens}}` (e.g. `{{name}}`, `{{colors.accent}}`). No brand strings are hard-coded.
-- `scripts/build.mjs`: renders `src/` into `dist/` (Node 18+, no dependencies). `scripts/check.mjs` verifies no hard-coded brand name or unresolved token.
+- `scripts/build.mjs`: renders `src/` into `dist/` (Node 18+, no dependencies). `scripts/check.mjs` verifies no hard-coded brand name, brand base domain (voics.nl) or unresolved token in `src/`.
 - `deploy/deploy.sh`: publishes `dist/` to the MinIO bucket via an in-cluster Job.
 
 ## Rename / rebrand
-1. Edit `brand.json` (`name`, `tagline`, `description`, `domain`, `colors.*`, `logo`).
+1. Edit `brand.json` (`name`, `downloads.*`, `contact.*`, `tagline`, `description`, `domain`, `colors.*`, `logo`).
 2. To change the logo, replace `src/assets/logo.svg` (or point `logo` at another file under `src/`).
 3. `npm run build && npm run check`, then deploy.
 
