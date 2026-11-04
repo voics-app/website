@@ -1,5 +1,5 @@
 {
-  "name": "Discordy",
+  "name": "Voics",
   "tagline": "Chat, call and hang out. Privately.",
   "heroTitle": "Where your crew hangs out",
   "heroSub": "Text, voice and video for the people you actually talk to. Jump into a call in one click, share your screen in up to 4K, and keep your DMs between you with end-to-end encryption.",
@@ -34,7 +34,7 @@
   "downloads": {
     "available": true,
     "releasesUrl": "",
-    "windows": "https://discordy-updates.voics.nl/Discordy-Setup-latest.exe",
+    "windows": "https://discordy-updates.voics.nl/Voics-Setup-latest.exe",
     "macos": "",
     "linux": "",
     "requestAccessUrl": "mailto:hello@voics.nl?subject=Early%20access"
