@@ -3,11 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Privacybeleid (concept) | {{name}}</title>
+<title>Privacybeleid | {{name}}</title>
 <meta name="description" content="Hoe {{name}} met je gegevens omgaat: wat er wordt bewaard, hoe lang, hoe de versleutelingsmodi verschillen en wie er verder bij betrokken is.">
-<!-- CONCEPT: verwijder deze robots-tag pas nadat de eigenaar de tekst heeft laten controleren en elk [OWNER: ...]-veld is ingevuld. -->
 <link rel="alternate" hreflang="en" href="{{pages.privacy}}">
-<meta name="robots" content="noindex">
 <meta name="theme-color" content="{{colors.accentDeep}}">
 <link rel="icon" href="{{logo}}" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,13 +33,12 @@
 
 <main id="main">
 <div class="doc wrap">
-  <p class="draft-banner" role="note"><strong>Concept, nog niet gecontroleerd.</strong> Deze tekst beschrijft wat de {{name}}-apps en -servers nu doen. Het is geen juridisch advies en is niet door een jurist beoordeeld. Gemarkeerde <mark class="todo">[OWNER: ...]</mark>-velden moeten worden ingevuld en de tekst moet worden gecontroleerd voordat hij wordt gepubliceerd of aan de App Store wordt gekoppeld. De Engelse versie is leidend tot de eigenaar iets anders bepaalt.</p>
 
   <h1>Privacybeleid</h1>
-  <p class="meta">Concept van 6 november 2026. Geldt voor de {{name}}-apps (iPhone, eerst via TestFlight, en Windows) en de dienst erachter op {{domain}}.</p>
+  <p class="meta">Laatst bijgewerkt op 6 november 2026. Geldt voor de {{name}}-apps (iPhone, eerst via TestFlight, en Windows) en de dienst erachter op {{domain}}.</p>
 
   <h2 id="who">1. Wie is verantwoordelijk</h2>
-  <p>Verwerkingsverantwoordelijke voor je gegevens is {{company}}, het bedrijf dat {{name}} beheert. Postadres: <mark class="todo">[OWNER: postadres]</mark>. KvK-nummer: <mark class="todo">[OWNER: KvK-nummer]</mark>. Contact voor privacyvragen en verzoeken: <a href="{{links.privacy}}">{{contactEmail}}</a>. We hebben geen functionaris voor gegevensbescherming aangesteld. <mark class="todo">[OWNER: laat een adviseur bevestigen dat dit niet verplicht is volgens AVG-artikel 37]</mark></p>
+  <p>Verwerkingsverantwoordelijke voor je gegevens is {{company}}, het bedrijf dat {{name}} beheert. Postadres: Markt 155, 5701 RJ Helmond, Nederland. KvK-nummer: 93030037. Contact voor privacyvragen en verzoeken: <a href="{{links.privacy}}">{{contactEmail}}</a>. We hebben geen functionaris voor gegevensbescherming aangesteld.</p>
 
   <h2 id="data">2. Wat we bewaren en waarom</h2>
   <p>{{name}} is een chatdienst met servers, directe berichten, spraak en video. We bewaren alleen wat de functies nodig hebben. In de apps zitten geen advertentie-, analyse- of trackingtools en we verkopen geen gegevens. De rechtsgrond per rij staat in de laatste kolom en gebruikt artikel 6, lid 1 van de AVG: (b) is uitvoering van de overeenkomst met jou (de chatdienst leveren waarvoor je je hebt aangemeld), (f) is ons gerechtvaardigd belang, dat we afwegen tegen jouw rechten.</p>
@@ -60,15 +57,14 @@
     </tbody>
   </table>
   </div>
-  <p><mark class="todo">[OWNER: bevestig of IP-adressen in verzoeklogs voorkomen]</mark></p>
   <p>Camera, microfoon en fotobibliotheek worden alleen gebruikt als je een gesprek binnengaat of een bestand kiest; we bewaren alleen wat je verstuurt.</p>
 
   <h2 id="modes">3. De drie manieren waarop een bericht kan worden verstuurd</h2>
   <p>Elke chat gebruikt één bezorgmodus. In een directe chat wint de strengste voorkeur van de deelnemers. De modus zie je in de app.</p>
   <ul>
-    <li><strong>Standaard.</strong> Verstuurd over een versleutelde verbinding (TLS) en als leesbare tekst op onze servers bewaard, zodat iedereen in de chat de geschiedenis ziet, en de beheerder ook. Linkvoorbeelden worden door onze server gemaakt, die de gelinkte pagina ophaalt. Moderators kunnen een gemeld Standaard-bericht zien.</li>
-    <li><strong>Vluchtig.</strong> End-to-end versleuteld met MLS tussen de apparaten in de chat. Onze servers geven versleutelde data door en kunnen zien voor wie en wanneer, maar niet wat er staat. Een bericht wacht op onze server alleen tot je apparaat de ontvangst bevestigt, en nooit langer dan 7 dagen. De leesbare geschiedenis staat alleen in een versleutelde database op je eigen apparaten. Berichten verwijderen en verdwijntimers voor deze chats worden gebouwd. <mark class="todo">[OWNER: tot ze live zijn: berichten kunnen na verzenden niet worden verwijderd; daarna hier en in sectie 6 beschrijven]</mark> Onze servers kunnen voor deze chats geen linkvoorbeelden ophalen.</li>
-    <li><strong>Peer-to-peer.</strong> Rechtstreeks tussen de apparaten van de mensen in de chat verstuurd, waarbij onze servers alleen verbindingsgegevens doorgeven. Er wordt niets in de wachtrij gezet of op een server bewaard: is de ander offline, dan wordt het bericht niet bezorgd. Zolang je verbonden bent, kunnen apparaten elkaars IP-adres zien.</li>
+    <li><strong>Standaard.</strong> Verstuurd over een versleutelde verbinding (TLS) en als leesbare tekst op onze servers bewaard, zodat iedereen in de chat de geschiedenis ziet, en de beheerder ook. Linkvoorbeelden worden door onze server gemaakt, die de gelinkte pagina ophaalt. Moderators kunnen een gemeld Standaard-bericht zien. Je kunt je eigen berichten voor iedereen verwijderen; verdwijnende berichten bestaan in deze modus niet.</li>
+    <li><strong>Vluchtig.</strong> End-to-end versleuteld met MLS tussen de apparaten in de chat. Onze servers geven versleutelde data door en kunnen zien voor wie en wanneer, maar niet wat er staat. Een bericht wacht op onze server alleen tot je apparaat de ontvangst bevestigt, en nooit langer dan 7 dagen. De leesbare geschiedenis staat alleen in een versleutelde database op je eigen apparaten. Je kunt je eigen berichten voor iedereen verwijderen: de verwijderinstructie reist mee in de versleutelde data en elk apparaat in de chat haalt het bericht weg. Een apparaat dat offline is, past dit toe zodra het weer verbinding maakt. Een chat kan ook een verdwijntimer hebben (5 minuten, 1 uur, 1 dag, 1 week of 4 weken); elk apparaat haalt nieuwe berichten van het scherm en uit de versleutelde opslag zodra de tijd om is. Kopieën en screenshots die iemand al heeft gemaakt kunnen niet worden verwijderd, en berichten op een apparaat dat nooit meer online komt evenmin. Onze servers kunnen voor deze chats geen linkvoorbeelden ophalen.</li>
+    <li><strong>Peer-to-peer.</strong> Rechtstreeks tussen de apparaten van de mensen in de chat verstuurd, waarbij onze servers alleen verbindingsgegevens doorgeven. Er wordt niets in de wachtrij gezet of op een server bewaard: is de ander offline, dan wordt het bericht niet bezorgd. Zolang je verbonden bent, kunnen apparaten elkaars IP-adres zien. Verwijderen en verdwijnende berichten werken op dezelfde manier, via de directe verbinding; een verwijdering bereikt een offline apparaat de volgende keer dat de apparaten verbinden, en kopieën en screenshots kunnen niet worden verwijderd.</li>
   </ul>
   <p>Spraak- en videogesprekken kunnen ook end-to-end versleuteld zijn (DAVE). Privémodi vallen nooit terug op Standaard: kan een privébericht niet veilig worden verstuurd, dan wordt het niet verstuurd.</p>
   <p>Omdat vluchtige en peer-to-peer-inhoud niet op onze servers staat, kunnen we die niet herstellen, op verzoek verstrekken of beoordelen. Een melding uit zo'n chat bevat alleen wat de melder zelf indient.</p>
@@ -80,12 +76,12 @@
   <ul>
     <li><strong>Apple</strong> verspreidt de iPhone-app (TestFlight en App Store) en bezorgt pushmeldingen, zoals hierboven beschreven. Het privacybeleid van Apple is van toepassing op haar diensten.</li>
     <li><strong>Cloudflare</strong> staat vóór onze servers: het levert DNS, de beveiligde tunnel die verkeer naar onze servers brengt en toegangscontrole voor onze beheertools. Omdat dat verkeer naar Cloudflare en daarna naar ons versleuteld wordt vervoerd, verwerkt Cloudflare het verkeer technisch onderweg, inclusief Standaard-berichten. Het ziet IP-adressen en verzoekmetadata. Spraak- en videomedia gaan rechtstreeks naar onze spraakservers en niet via Cloudflare.</li>
-    <li><strong>Onze servers.</strong> {{name}} draait op infrastructuur die we zelf beheren. De spraakservers draaien in de regio die naar Nederland is vernoemd (<code>nl-home</code>). <mark class="todo">[OWNER: bevestig dat alle servers, inclusief de database, fysiek in Nederland staan; de infrastructuurdocumentatie suggereert dit maar vermeldt het niet]</mark> Versleutelde back-ups worden gekopieerd naar een externe opslaglocatie. <mark class="todo">[OWNER: noem de aanbieder en locatie van de externe back-up zodra die is gekozen]</mark></li>
-    <li><strong>E-mail.</strong> Accountmails (je adres bevestigen, een wachtwoord herstellen) hebben een e-mailaanbieder nodig. We versturen ze via de e-maildienst van Cloudflare en mail naar {{contactEmail}} wordt door Cloudflare ontvangen en doorgestuurd naar onze mailbox. <mark class="todo">[OWNER: verwijder het verzenddeel van deze zin tot e-mailbezorging in productie aanstaat; nu wordt alleen gelogd]</mark></li>
+    <li><strong>Onze servers.</strong> {{name}} draait op infrastructuur die we zelf beheren. De spraakservers draaien in de regio die naar Nederland is vernoemd (<code>nl-home</code>). Al onze servers, inclusief de database, staan in Nederland. Back-ups blijven op onze eigen infrastructuur; we gebruiken geen externe back-upaanbieder.</li>
+    <li><strong>E-mail.</strong> Accountmails (je adres bevestigen, een wachtwoord herstellen) hebben een e-mailaanbieder nodig. We versturen ze via Brevo (voorheen Sendinblue), dat als verwerker voor ons optreedt. Brevo ontvangt het e-mailadres van de ontvanger en het onderwerp en de tekst van het bericht, inclusief de link om een adres te bevestigen of een wachtwoord te herstellen, en verstuurt het vanaf een no-reply-adres. Mail naar {{contactEmail}} wordt ontvangen door Cloudflare Email Routing en doorgestuurd naar onze mailbox, dus Cloudflare verwerkt die mail onderweg.</li>
     <li><strong>Websites waarnaar je linkt.</strong> Bij Standaard-berichten haalt onze server de pagina's en afbeeldingen op waarnaar je linkt om voorbeelden te maken. Die sites zien onze server, niet jou. De apps halen voor privéchats geen voorbeelden op, tenzij je dat aanzet; dan ziet de site je IP-adres.</li>
     <li><strong>Bouwtools.</strong> De iPhone-app wordt gebouwd met de buildtools van Expo. De app gebruikt de push-, update- of analysediensten van Expo niet.</li>
   </ul>
-  <p>We delen je gegevens niet met adverteerders of databrokers. We verstrekken gegevens alleen aan autoriteiten als de wet dat vereist, en de inhoud van vluchtige of peer-to-peer-chats kunnen we niet verstrekken omdat we die niet hebben. Apple en Cloudflare zijn Amerikaanse bedrijven, dus gegevens kunnen buiten de Europese Economische Ruimte worden doorgegeven (AVG-hoofdstuk V). <mark class="todo">[OWNER: bevestig op welke waarborg elk van beide steunt, bijvoorbeeld certificering onder het EU-VS Data Privacy Framework of modelcontractbepalingen]</mark></p>
+  <p>We delen je gegevens niet met adverteerders of databrokers. We verstrekken gegevens alleen aan autoriteiten als de wet dat vereist, en de inhoud van vluchtige of peer-to-peer-chats kunnen we niet verstrekken omdat we die niet hebben. Apple en Cloudflare zijn Amerikaanse bedrijven, dus gegevens kunnen buiten de Europese Economische Ruimte worden doorgegeven (AVG-hoofdstuk V). Apple stelt dat doorgifte van gegevens uit de EER wordt beheerst door modelcontractbepalingen (<a href="https://www.apple.com/legal/privacy/en-ww/">privacybeleid van Apple</a>). Cloudflare stelt dat het is gecertificeerd onder het EU-VS Data Privacy Framework en op modelcontractbepalingen steunt als die certificering vervalt (<a href="https://www.cloudflare.com/trust-hub/gdpr/">AVG-pagina van Cloudflare</a>). Ook doorgifte door Brevo buiten de EER valt onder hoofdstuk V.</p>
 
   <h2 id="retention">6. Hoe lang gegevens worden bewaard</h2>
   <div class="table-wrap">
@@ -93,13 +89,14 @@
     <thead><tr><th>Gegevens</th><th>Bewaard</th></tr></thead>
     <tbody>
       <tr><td>Je account</td><td>Tot je het verwijdert. Verwijderen plant de opruiming na 14 dagen; opnieuw inloggen binnen die 14 dagen annuleert het. Daarna wordt je gebruikersnaam een plaatsvervanger en worden je e-mail, namen, avatar, inloggegevens en tokens verwijderd.</td></tr>
-      <tr><td>Berichten die je in Standaard-chats stuurde</td><td>Ze blijven in de chat staan, toegeschreven aan het geanonimiseerde account, tenzij jij of een moderator ze eerder verwijdert. Een bericht verwijderen haalt het direct uit de live dienst. <mark class="todo">[OWNER: besluit of accountverwijdering ook de Standaard-berichten van die persoon moet verwijderen]</mark></td></tr>
+      <tr><td>Berichten die je in Standaard-chats stuurde</td><td>Ze blijven in de chat staan, toegeschreven aan het geanonimiseerde account, tenzij jij of een moderator ze eerder verwijdert. Je account verwijderen verwijdert ze niet: ze blijven staan onder de plaatsvervangende naam, zonder je profiel. Verwijder de berichten die weg moeten voordat je je account verwijdert. Een bericht verwijderen haalt het direct uit de live dienst; kopieën in back-ups verlopen zoals hieronder aangegeven.</td></tr>
       <tr><td>Loginsessies</td><td>Een sessie eindigt als je uitlogt of 30 dagen niet wordt gebruikt. Een apparaat dat 30 dagen niet is gezien, wordt verwijderd, samen met zijn versleutelingssleutels en pushtokens.</td></tr>
       <tr><td>Vluchtige berichten onderweg</td><td>Tot je apparaat ze bevestigt, hooguit 7 dagen.</td></tr>
+      <tr><td>Berichten in vluchtige en peer-to-peer-chats</td><td>Alleen op de apparaten in de chat, tot de afzender ze verwijdert of de verdwijntimer van de chat ze weghaalt. Wij kunnen ze niet van onze kant verwijderen.</td></tr>
       <tr><td>Gebeurtenisstroom tussen onze diensten</td><td>7 dagen. Ze bevat dezelfde gebeurtenissen als de live dienst, bijvoorbeeld nieuwe berichten.</td></tr>
-      <tr><td>Back-ups</td><td>Databaseback-ups 14 dagen, back-ups van berichtgeschiedenis 14 dagen, geüploade bestanden 30 dagen en images van hele servers 4 weken. Inhoud die je hebt verwijderd kan hierin blijven bestaan tot ze verlopen.</td></tr>
-      <tr><td>Meldingen van misbruik</td><td>12 maanden nadat de melding is afgehandeld, daarna verwijderd. <mark class="todo">[OWNER: bevestig; automatische verwijdering is nog niet gebouwd]</mark></td></tr>
-      <tr><td>Verzoeklogs</td><td>30 dagen. <mark class="todo">[OWNER: bevestig en stel de logrotatie hierop in]</mark></td></tr>
+      <tr><td>Back-ups</td><td>Back-ups blijven op onze eigen infrastructuur. Databaseback-ups 14 dagen, back-ups van berichtgeschiedenis 14 dagen, geüploade bestanden 30 dagen en images van hele servers 4 weken. Inhoud die je hebt verwijderd kan hierin blijven bestaan tot ze verlopen.</td></tr>
+      <tr><td>Meldingen van misbruik</td><td>We verwijderen een melding 12 maanden nadat die is afgehandeld. Automatische verwijdering bestaat nog niet: we doen dit handmatig, dus een melding kan iets langer dan 12 maanden bewaard blijven.</td></tr>
+      <tr><td>Verzoeklogs</td><td>Niet gearchiveerd en niet naar een ander systeem gekopieerd. Ze bestaan alleen als roterende serverlogs die worden overschreven naarmate ze vollopen, dus er is geen vaste termijn; hoe lang een regel blijft staan hangt af van het verkeer. Cloudflare bewaart eigen logs volgens eigen beleid.</td></tr>
       <tr><td>Servicemetrics</td><td>14 dagen.</td></tr>
       <tr><td>Geaggregeerde gebruikerstellers</td><td>Bewaard als totalen per minuut, uur en dag zonder berichtinhoud, en op leeftijd ingekort.</td></tr>
       <tr><td>Administratie</td><td>{{name}} kent nu geen betalingen. Als dat verandert, worden facturen en boekhouding 7 jaar bewaard, zoals de Nederlandse belastingwet vereist (art. 52 Algemene wet inzake rijksbelastingen, AWR).</td></tr>

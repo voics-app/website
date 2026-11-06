@@ -220,8 +220,6 @@ body.docpage nav.main a[aria-current="page"]{text-decoration:underline;text-unde
 .doc th,.doc td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid rgba(0,0,0,.08)}
 .doc th{font-weight:700;background:var(--tint)}
 .doc tr:last-child td{border-bottom:0}
-.todo{background:var(--yellow);color:#2a2000;padding:1px 6px;border-radius:6px;font-weight:600}
-.draft-banner{background:#fff3c4;color:#2a2000;border:2px solid var(--yellow);border-radius:16px;padding:14px 18px;margin:0 0 28px}
 body.docpage footer.site .legal{padding:24px 0}
 body.docpage footer.site .legal a{color:inherit}
 body.docpage nav.main{position:static;display:block;margin:0;padding:0;background:none;box-shadow:none}
