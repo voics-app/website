@@ -6,6 +6,7 @@
 <title>Privacy policy (draft) | {{name}}</title>
 <meta name="description" content="How {{name}} handles your data: what is stored, for how long, how the encryption modes differ, and who else is involved.">
 <!-- DRAFT: remove this robots tag only after the owner has had the text checked and every [OWNER: ...] field is filled in. -->
+<link rel="alternate" hreflang="nl" href="{{pages.privacyNl}}">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="{{colors.accentDeep}}">
 <link rel="icon" href="{{logo}}" type="image/svg+xml">
@@ -26,6 +27,7 @@
         <li><a href="index.html#features">Features</a></li>
         <li><a href="{{pages.support}}">Support</a></li>
         <li><a href="{{pages.privacy}}" aria-current="page">Privacy policy</a></li>
+        <li><a href="{{pages.privacyNl}}" hreflang="nl" lang="nl">Nederlands</a></li>
       </ul>
     </nav>
   </div>
@@ -36,35 +38,36 @@
   <p class="draft-banner" role="note"><strong>Draft, not yet checked.</strong> This text describes what the {{name}} apps and servers do today. It is not legal advice and has not been reviewed by a lawyer. Highlighted <mark class="todo">[OWNER: ...]</mark> fields must be filled in, and the text checked, before it is published or linked from the App Store.</p>
 
   <h1>Privacy policy</h1>
-  <p class="meta">Draft of 6 November 2026. Applies to the {{name}} apps (iPhone, via TestFlight at first, and Windows) and the service behind them at {{domain}}.</p>
+  <p class="meta">Draft of 6 November 2026 (company, contact and minimum age filled in). Applies to the {{name}} apps (iPhone, via TestFlight at first, and Windows) and the service behind them at {{domain}}.</p>
 
   <h2 id="who">1. Who is responsible</h2>
-  <p>The controller of your data is <mark class="todo">[OWNER: legal name of the person or company running {{name}}]</mark>, <mark class="todo">[OWNER: postal address]</mark>. Contact for privacy questions and requests: <a href="{{links.contact}}">{{contactEmail}}</a>. <mark class="todo">[OWNER: name a data protection contact, or state that none is required]</mark>.</p>
+  <p>The controller of your data is {{company}}, the company that runs {{name}}. Postal address: <mark class="todo">[OWNER: postal address]</mark>. Chamber of Commerce (KvK) number: <mark class="todo">[OWNER: KvK number]</mark>. Contact for privacy questions and requests: <a href="{{links.privacy}}">{{contactEmail}}</a>. We have not appointed a data protection officer. <mark class="todo">[OWNER: confirm with your adviser that none is required under GDPR Art. 37]</mark></p>
 
   <h2 id="data">2. What is stored, and why</h2>
-  <p>{{name}} is a chat service with servers, direct messages, voice and video. We only store what the features need. There are no advertising, analytics or tracking tools in the apps, and we do not sell data. <mark class="todo">[OWNER: legal basis for each row, for example performance of the contract, legitimate interest or consent]</mark></p>
+  <p>{{name}} is a chat service with servers, direct messages, voice and video. We only store what the features need. There are no advertising, analytics or tracking tools in the apps, and we do not sell data. The legal basis for each row is in the last column and uses Article 6(1) of the GDPR: (b) is performance of the contract with you (providing the chat service you signed up for), (f) is our legitimate interest, which we weigh against your rights.</p>
   <div class="table-wrap">
   <table>
-    <thead><tr><th>Data</th><th>What exactly</th><th>Why</th></tr></thead>
+    <thead><tr><th>Data</th><th>What exactly</th><th>Why</th><th>Legal basis</th></tr></thead>
     <tbody>
-      <tr><td>Account</td><td>Email address, username, display name, avatar, banner and "about me" if you set them, your settings (theme, language, notification and delivery preferences). Your password is stored only as a salted Argon2 hash. If you turn on two-factor authentication, the authenticator secret and hashed backup codes.</td><td>To sign you in and show who you are to other people.</td></tr>
-      <tr><td>Sessions and devices</td><td>For each login: the app and operating system name it reports, when it was last used, and a hashed refresh token. For end-to-end encryption: a public identity key and public key packages per device. On iPhone: the push token that Apple issues for the app, and a second token for incoming-call alerts.</td><td>To keep you signed in, show your active devices (so you can sign them out), enable encrypted chats and deliver notifications.</td></tr>
-      <tr><td>Messages in Standard chats</td><td>Text, attachments, reactions, pins, edits and read positions. These are stored on our servers without end-to-end encryption, so the operator of the service can technically read them (see section 3).</td><td>To deliver messages, keep history and let you search it.</td></tr>
-      <tr><td>Servers and people</td><td>Servers you create or join, your roles and membership, friends and blocked people, private notes you write about other people, server audit-log entries about moderation actions.</td><td>To run communities and let moderators keep them safe.</td></tr>
-      <tr><td>Presence</td><td>Whether you are online, your custom status and the activity you set. Kept in a temporary in-memory store while you are connected.</td><td>To show your status to people who share a server or chat with you.</td></tr>
-      <tr><td>Voice and video</td><td>While you are in a call, our voice server relays your audio and video and sees your IP address. Calls are not recorded. We keep aggregated quality numbers (such as jitter and packet loss) without message or call content.</td><td>To connect calls and keep the voice service healthy.</td></tr>
-      <tr><td>Reports</td><td>If you report a message or a person: who reported, who is reported, the category you chose, your optional note and a copy of the reported message. For Standard chats we copy the message from our servers when you report it. For ephemeral and peer-to-peer chats we hold no copy, so the report contains only what you choose to send with it.</td><td>To let moderators review abuse. The person you report is never told who reported them.</td></tr>
-      <tr><td>Technical data</td><td>Your IP address is used briefly to limit abuse (rate limits) and is seen by our hosting and by Cloudflare (section 5). Our servers keep request logs and counters without message content. We count events such as messages sent and calls started to see how much the service is used.</td><td>To keep the service secure, reliable and sized correctly.</td></tr>
+      <tr><td>Account</td><td>Email address, username, display name, avatar, banner and "about me" if you set them, your settings (theme, language, notification and delivery preferences). Your password is stored only as a salted Argon2 hash. If you turn on two-factor authentication, the authenticator secret and hashed backup codes.</td><td>To sign you in and show who you are to other people.</td><td>Art. 6(1)(b)</td></tr>
+      <tr><td>Sessions and devices</td><td>For each login: the app and operating system name it reports, when it was last used, and a hashed refresh token. For end-to-end encryption: a public identity key and public key packages per device. On iPhone: the push token that Apple issues for the app, and a second token for incoming-call alerts.</td><td>To keep you signed in, show your active devices (so you can sign them out), enable encrypted chats and deliver notifications.</td><td>Art. 6(1)(b); account security also Art. 6(1)(f)</td></tr>
+      <tr><td>Messages in Standard chats</td><td>Text, attachments, reactions, pins, edits and read positions. These are stored on our servers without end-to-end encryption, so the operator of the service can technically read them (see section 3).</td><td>To deliver messages, keep history and let you search it.</td><td>Art. 6(1)(b)</td></tr>
+      <tr><td>Servers and people</td><td>Servers you create or join, your roles and membership, friends and blocked people, private notes you write about other people, server audit-log entries about moderation actions.</td><td>To run communities and let moderators keep them safe.</td><td>Art. 6(1)(b); audit-log entries Art. 6(1)(f)</td></tr>
+      <tr><td>Presence</td><td>Whether you are online, your custom status and the activity you set. Kept in a temporary in-memory store while you are connected.</td><td>To show your status to people who share a server or chat with you.</td><td>Art. 6(1)(b)</td></tr>
+      <tr><td>Voice and video</td><td>While you are in a call, our voice server relays your audio and video and sees your IP address. Calls are not recorded. We keep aggregated quality numbers (such as jitter and packet loss) without message or call content.</td><td>To connect calls and keep the voice service healthy.</td><td>Art. 6(1)(b); quality numbers Art. 6(1)(f)</td></tr>
+      <tr><td>Reports</td><td>If you report a message or a person: who reported, who is reported, the category you chose, your optional note and a copy of the reported message. For Standard chats we copy the message from our servers when you report it. For ephemeral and peer-to-peer chats we hold no copy, so the report contains only what you choose to send with it.</td><td>To let moderators review abuse. The person you report is never told who reported them.</td><td>Art. 6(1)(f): keeping the service safe</td></tr>
+      <tr><td>Technical data</td><td>Your IP address is used briefly to limit abuse (rate limits) and is seen by our hosting and by Cloudflare (section 5). We do not store your IP address with your login sessions; if Cloudflare passes on your country, we keep only that country. Our servers keep request logs and counters without message content. We count events such as messages sent and calls started to see how much the service is used.</td><td>To keep the service secure, reliable and sized correctly.</td><td>Art. 6(1)(f): security and operation (GDPR recital 49)</td></tr>
     </tbody>
   </table>
   </div>
-  <p><mark class="todo">[OWNER: confirm how long request logs are kept and whether IP addresses appear in them]</mark></p>
+  <p><mark class="todo">[OWNER: confirm whether IP addresses appear in request logs]</mark></p>
+  <p>The camera, microphone and photo library are used only when you join a call or choose a file; we store only what you send.</p>
 
   <h2 id="modes">3. The three ways a message can be sent</h2>
   <p>Every chat uses one delivery mode. The strictest preference of the people in a direct chat wins. You can see the mode in the app.</p>
   <ul>
     <li><strong>Standard.</strong> Sent over an encrypted connection (TLS) and stored on our servers as readable text, so everyone in the chat sees the history and so can the operator. Link previews are made by our server, which fetches the linked page. Moderators can see a Standard message that is reported.</li>
-    <li><strong>Ephemeral.</strong> End-to-end encrypted with MLS between the devices in the chat. Our servers relay encrypted data and can see who it is for and when, but not what it says. A message waits on our server only until your device confirms it arrived, and never longer than 7 days. The readable history lives only in an encrypted database on your own devices. Messages in these chats cannot be deleted after sending, and our servers cannot fetch link previews for them.</li>
+    <li><strong>Ephemeral.</strong> End-to-end encrypted with MLS between the devices in the chat. Our servers relay encrypted data and can see who it is for and when, but not what it says. A message waits on our server only until your device confirms it arrived, and never longer than 7 days. The readable history lives only in an encrypted database on your own devices. Deleting a message and disappearing-message timers for these chats are being built. <mark class="todo">[OWNER: until they ship, say that messages cannot be deleted after sending; once they ship, describe them here and in section 6]</mark> Our servers cannot fetch link previews for them.</li>
     <li><strong>Peer-to-peer.</strong> Sent straight between the devices of the people in the chat, with our servers only passing connection set-up data. Nothing is queued or stored on a server: if the other person is offline the message is not delivered. While you are connected, your devices may see each other's IP addresses.</li>
   </ul>
   <p>Voice and video calls can also be end-to-end encrypted (DAVE). Private modes never fall back to Standard: if a private message cannot be sent securely, it is not sent.</p>
@@ -77,12 +80,12 @@
   <ul>
     <li><strong>Apple</strong> distributes the iPhone app (TestFlight and the App Store) and delivers push notifications, as described above. Apple's own privacy policy applies to its services.</li>
     <li><strong>Cloudflare</strong> sits in front of our servers: it provides DNS, the secure tunnel that carries traffic to our servers, and access control for our admin tools. Because that traffic is encrypted to Cloudflare and then carried to us, Cloudflare technically handles the traffic in transit, including Standard messages. It sees IP addresses and request metadata. Voice and video media travel directly to our voice servers and do not pass through Cloudflare.</li>
-    <li><strong>Our servers.</strong> {{name}} runs on infrastructure we operate ourselves. <mark class="todo">[OWNER: where the servers are located]</mark> Encrypted backups are copied to an off-site storage target. <mark class="todo">[OWNER: name the off-site backup provider and its location once chosen]</mark></li>
-    <li><strong>Email.</strong> Account emails (verifying your address, resetting a password) need an email provider. <mark class="todo">[OWNER: no email provider is configured in production at the time of writing; name the provider when email delivery is switched on]</mark></li>
+    <li><strong>Our servers.</strong> {{name}} runs on infrastructure we operate ourselves. The voice servers run in the region named after the Netherlands (<code>nl-home</code>). <mark class="todo">[OWNER: confirm that all servers, including the database, are physically in the Netherlands; the infrastructure docs imply it but do not state it]</mark> Encrypted backups are copied to an off-site storage target. <mark class="todo">[OWNER: name the off-site backup provider and its location once chosen]</mark></li>
+    <li><strong>Email.</strong> Account emails (verifying your address, resetting a password) need an email provider. We send them through Cloudflare's email service, and mail sent to {{contactEmail}} is received and forwarded by Cloudflare to our mailbox. <mark class="todo">[OWNER: delete the sending part of this sentence until email delivery is switched on in production; today it only writes to a log]</mark></li>
     <li><strong>Websites you link to.</strong> For Standard messages, our server fetches the pages and images you link to in order to make previews. Those sites see our server, not you. The apps do not fetch previews for private chats unless you opt in; then the site sees your IP address.</li>
     <li><strong>Build tools.</strong> The iPhone app is built with Expo's build tooling. The app does not use Expo's push, update or analytics services.</li>
   </ul>
-  <p>We do not share your data with advertisers or data brokers. We disclose data to authorities only where the law requires it, and we cannot disclose the content of ephemeral or peer-to-peer chats because we do not have it. <mark class="todo">[OWNER: transfers outside the EEA, for example Apple and Cloudflare, and the safeguards relied on]</mark></p>
+  <p>We do not share your data with advertisers or data brokers. We disclose data to authorities only where the law requires it, and we cannot disclose the content of ephemeral or peer-to-peer chats because we do not have it. Apple and Cloudflare are US companies, so data can be transferred outside the European Economic Area (GDPR chapter V). <mark class="todo">[OWNER: confirm the safeguard each relies on, for example EU-US Data Privacy Framework certification or Standard Contractual Clauses]</mark></p>
 
   <h2 id="retention">6. How long data is kept</h2>
   <div class="table-wrap">
@@ -95,25 +98,27 @@
       <tr><td>Ephemeral messages in transit</td><td>Until your device confirms them, at most 7 days.</td></tr>
       <tr><td>Event stream between our services</td><td>7 days. It carries the same events as the live service, for example new messages.</td></tr>
       <tr><td>Backups</td><td>Database backups are kept 14 days, message history backups 14 days, uploaded files 30 days, and whole-server images 4 weeks. Content you deleted can still exist in these until they expire.</td></tr>
-      <tr><td>Reports</td><td><mark class="todo">[OWNER: retention period for reports; there is no automatic deletion yet]</mark></td></tr>
-      <tr><td>Request logs</td><td><mark class="todo">[OWNER: retention period]</mark></td></tr>
+      <tr><td>Reports</td><td>12 months after the report is closed, then deleted. <mark class="todo">[OWNER: confirm; automatic deletion is not built yet]</mark></td></tr>
+      <tr><td>Request logs</td><td>30 days. <mark class="todo">[OWNER: confirm and set the log rotation to match]</mark></td></tr>
+      <tr><td>Service metrics</td><td>14 days.</td></tr>
+      <tr><td>Accounting records</td><td>{{name}} has no payments today. If that changes, invoices and bookkeeping are kept 7 years, as Dutch tax law requires (art. 52 General State Taxes Act, AWR).</td></tr>
       <tr><td>Aggregated usage counters</td><td>Kept as minute, hour and day totals without message content, and trimmed by age.</td></tr>
     </tbody>
   </table>
   </div>
 
   <h2 id="rights">7. Your choices and rights</h2>
-  <p>In the app you can edit your profile, change your email and password, turn on two-factor authentication, see and sign out your devices, block people, report content, choose a delivery mode and delete your account. Under data protection law you may also ask us for access to your data, correction, deletion, restriction, a portable copy, or object to processing, and you may complain to the supervisory authority. <mark class="todo">[OWNER: name the authority, for example the Dutch Autoriteit Persoonsgegevens]</mark></p>
-  <p>There is no self-service data export in the app yet. Send your request to <a href="{{links.contact}}">{{contactEmail}}</a>; we will answer within <mark class="todo">[OWNER: response time, at most one month under the GDPR]</mark>. We cannot export or delete ephemeral and peer-to-peer messages from our side, because they only exist on the devices of the people in the chat.</p>
+  <p>In the app you can edit your profile, change your email and password, turn on two-factor authentication, see and sign out your devices, block people, report content, choose a delivery mode and delete your account. Under data protection law you may also ask us for access to your data, correction, deletion, restriction, a portable copy, or object to processing, and you may complain to the supervisory authority. In the Netherlands that is the <a href="https://autoriteitpersoonsgegevens.nl">Autoriteit Persoonsgegevens</a>. It asks you to contact us first.</p>
+  <p>There is no self-service data export in the app yet. Send your request to <a href="{{links.privacy}}">{{contactEmail}}</a>; we will answer within one month (GDPR Art. 12(3)); for complex requests we may extend this by up to two further months and will tell you why. We cannot export or delete ephemeral and peer-to-peer messages from our side, because they only exist on the devices of the people in the chat.</p>
 
   <h2 id="children">8. Children</h2>
-  <p>{{name}} is meant for people aged <mark class="todo">[OWNER: minimum age]</mark> and over.</p>
+  <p>{{name}} is meant for people aged {{minAge}} and over. We do not knowingly collect data from younger children; if you think a child under {{minAge}} has an account, tell us at <a href="{{links.privacy}}">{{contactEmail}}</a> and we will remove it.</p>
 
   <h2 id="security">9. Security</h2>
   <p>Connections use TLS. Passwords and refresh tokens are stored hashed. On iPhone the session is kept in the system Keychain and the encrypted message database stays on the device, excluded from device backups. Our admin tools are behind an IP restriction and Cloudflare Access, and every administrative action is written to an audit log. No system is perfectly secure, and Standard messages are readable by the operator by design.</p>
 
   <h2 id="changes">10. Changes</h2>
-  <p>If this policy changes in a way that matters, we will tell you in the app before it takes effect. Questions: <a href="{{links.contact}}">{{contactEmail}}</a>.</p>
+  <p>If this policy changes in a way that matters, we will tell you in the app before it takes effect. Questions: <a href="{{links.privacy}}">{{contactEmail}}</a>.</p>
 </div>
 </main>
 

@@ -41,11 +41,15 @@
   },
   "links": {
     "contact": "mailto:hello@voics.nl",
-    "support": "mailto:hello@voics.nl?subject=Support"
+    "support": "mailto:support@voics.nl?subject=Support",
+    "privacy": "mailto:support@voics.nl?subject=Privacy"
   },
-  "contactEmail": "hello@voics.nl",
+  "contactEmail": "support@voics.nl",
+  "company": "Ecom Ella",
+  "minAge": "16",
   "pages": {
     "privacy": "privacy.html",
+    "privacyNl": "privacy-nl.html",
     "support": "support.html"
   },
   "year": 2026
