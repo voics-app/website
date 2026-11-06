@@ -43,5 +43,10 @@
     "contact": "mailto:hello@voics.nl",
     "support": "mailto:hello@voics.nl?subject=Support"
   },
+  "contactEmail": "hello@voics.nl",
+  "pages": {
+    "privacy": "privacy.html",
+    "support": "support.html"
+  },
   "year": 2026
 }

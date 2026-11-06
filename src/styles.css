@@ -200,3 +200,31 @@ footer .brand{margin-bottom:16px}
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .rv{opacity:1;transform:none}
 }
+
+/* Document pages (privacy policy, support) */
+body.docpage header.site{background:rgba(27,19,112,.96)}
+body.docpage header.site .wrap{justify-content:space-between}
+body.docpage nav.main ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+body.docpage nav.main a{color:#fff;text-decoration:none;font-weight:600}
+body.docpage nav.main a[aria-current="page"]{text-decoration:underline;text-underline-offset:6px}
+.doc{max-width:860px;padding-top:48px;padding-bottom:72px}
+.doc h1{font-size:clamp(2rem,5vw,3rem);margin-bottom:12px}
+.doc h2{font-size:1.4rem;margin:40px 0 12px}
+.doc p,.doc li{max-width:none}
+.doc ul{padding-left:1.2em}
+.doc li{margin:6px 0}
+.doc .meta{color:var(--muted)}
+.doc a{color:var(--accent-strong)}
+.doc .table-wrap{overflow-x:auto;margin:16px 0;border:1px solid rgba(0,0,0,.1);border-radius:16px;background:var(--surface)}
+.doc table{width:100%;border-collapse:collapse;font-size:.97rem}
+.doc th,.doc td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid rgba(0,0,0,.08)}
+.doc th{font-weight:700;background:var(--tint)}
+.doc tr:last-child td{border-bottom:0}
+.todo{background:var(--yellow);color:#2a2000;padding:1px 6px;border-radius:6px;font-weight:600}
+.draft-banner{background:#fff3c4;color:#2a2000;border:2px solid var(--yellow);border-radius:16px;padding:14px 18px;margin:0 0 28px}
+body.docpage footer.site .legal{padding:24px 0}
+body.docpage footer.site .legal a{color:inherit}
+body.docpage nav.main{position:static;display:block;margin:0;padding:0;background:none;box-shadow:none}
+body.docpage nav.main ul{flex-direction:row;gap:4px}
+body.docpage nav.main a{padding:10px 12px;font-size:1rem}
+body.docpage header.site .wrap{flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
