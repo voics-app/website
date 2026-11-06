@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Support | {{name}}</title>
+<meta name="description" content="Get help with {{name}}: contact us, report a message or a person, block someone, and manage or delete your account.">
+<meta name="theme-color" content="{{colors.accentDeep}}">
+<link rel="icon" href="{{logo}}" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family={{fonts.heading}}:wght@700;800;900&family={{fonts.body}}:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="docpage">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site solid" id="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="{{logo}}" alt="" width="40" height="40"><span>{{name}}</span></a>
+    <nav class="main open-static" aria-label="Main">
+      <ul>
+        <li><a href="index.html#download">Download</a></li>
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="{{pages.support}}" aria-current="page">Support</a></li>
+        <li><a href="{{pages.privacy}}">Privacy policy</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="doc wrap">
+  <h1>Support</h1>
+  <p class="meta">Help with the {{name}} apps. For anything not covered here, write to <a href="{{links.support}}">{{contactEmail}}</a>. We usually reply within a few working days. Privacy and data requests are answered within one month, as the GDPR requires (see the <a href="{{pages.privacy}}#rights">privacy policy</a>).</p>
+
+  <h2 id="contact">Contact us</h2>
+  <p>Email <a href="{{links.support}}">{{contactEmail}}</a> and tell us what you were doing, what you expected and what happened, plus the app (iPhone or Windows) and its version. Please do not send passwords. If you are testing the iPhone app through TestFlight you can also use TestFlight's "Send Beta Feedback", which attaches a screenshot.</p>
+  <p><strong>In an emergency</strong>, contact your local emergency number. We cannot respond to emergencies, and we cannot see the content of ephemeral or peer-to-peer chats.</p>
+
+  <h2 id="report">Report a message or a person</h2>
+  <ul>
+    <li><strong>A message:</strong> on iPhone, press and hold the message and choose <em>Report Message</em>. On Windows, right-click the message and choose <em>Report Message</em>. Pick what is wrong, add a note if you like, and send.</li>
+    <li><strong>A person:</strong> open their profile (or right-click them on Windows) and choose <em>Report</em>.</li>
+  </ul>
+  <p>Our moderators review reports. The person you report is never told who reported them, and you will not be told the outcome. You can send a limited number of reports per hour, and repeating a report that is still open does nothing.</p>
+  <p>What we receive depends on the chat. For a normal (Standard) chat we copy the reported message when you report it. Ephemeral and peer-to-peer chats are end-to-end encrypted and not stored on our servers, so we have no copy: the app tells you this and lets you choose whether to send the text of the message with the report. Without it, we only know who you reported and why.</p>
+  <p>Server owners and moderators can also remove messages and members in their own server.</p>
+
+  <h2 id="block">Block someone</h2>
+  <p>Open the person's profile and choose <em>Block</em>, or long-press one of their messages (iPhone) or right-click their name (Windows). A blocked person cannot send you messages or friend requests. You can unblock them under <em>Privacy and delivery</em> in settings.</p>
+
+  <h2 id="account">Your account</h2>
+  <ul>
+    <li><strong>Change password, email or username, and two-factor authentication:</strong> settings, <em>My account</em>.</li>
+    <li><strong>Sign out other devices:</strong> settings, <em>Devices and sessions</em>.</li>
+    <li><strong>Disable your account:</strong> settings, <em>My account</em>, <em>Disable account</em>. You are signed out everywhere and signing in again turns it back on.</li>
+    <li><strong>Delete your account:</strong> settings, <em>My account</em>, <em>Delete account</em>. You must first hand over any servers you own. Deletion happens after 14 days, and signing in again before then cancels it. See the <a href="{{pages.privacy}}#retention">privacy policy</a> for what is removed.</li>
+    <li><strong>Forgot your password:</strong> the Windows app has <em>Forgot password</em> on its sign-in screen; the iPhone app does not have it yet.</li>
+    <li><strong>A copy of your data or a data request:</strong> there is no self-service export yet. Email us and see the <a href="{{pages.privacy}}#rights">privacy policy</a>.</li>
+  </ul>
+
+  <h2 id="notifications">Notifications do not arrive</h2>
+  <ul>
+    <li>Check that notifications are allowed for the app in the iPhone settings, and not muted for that server or chat in the app.</li>
+    <li>You only get a push while the app is not connected. If it is open, messages appear in the app.</li>
+    <li>Messages from ephemeral and peer-to-peer chats show a generic alert without text. Previews of Standard messages can be switched off under notification settings.</li>
+    <li>Sign out and back in once to register the device again.</li>
+  </ul>
+
+  <h2 id="privacy-link">Privacy</h2>
+  <p>How your data is handled is described in the <a href="{{pages.privacy}}">privacy policy</a>.</p>
+</div>
+</main>
+
+<footer class="site"><div class="wrap">
+  <div class="legal"><span>&copy; {{year}} {{name}}. All rights reserved.</span><span><a href="index.html">Home</a> &middot; <a href="{{pages.support}}">Support</a> &middot; <a href="{{pages.privacy}}">Privacy policy</a></span></div>
+</div></footer>
+</body>
+</html>

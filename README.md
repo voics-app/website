@@ -13,6 +13,9 @@ Static marketing site served at https://discordy.voics.nl (bucket `discordy-site
 2. To change the logo, replace `src/assets/logo.svg` (or point `logo` at another file under `src/`).
 3. `npm run build && npm run check`, then deploy.
 
+## Privacy policy and support pages
+`src/privacy.html` and `src/support.html` are plain pages built like the home page (links come from `pages.*` and `contactEmail` in `brand.json`; English in `privacy.html` and Dutch in `privacy-nl.html`, linked to each other; the rest of the site is English only). The privacy policy is final text (company, address, KvK number and minimum age come from the owner). The text must be kept in step with the apps and infrastructure: data stored, retention, delivery modes, push, email (Brevo, Cloudflare Email Routing) and other third parties are described from the code, the gitops config and the backup runbook. The KvK number was taken from a third-party directory, not the KvK register, and should be re-checked there.
+
 ## Downloads
 All Download buttons link directly to `downloads.windows` in brand.json (stable URL of the latest installer). macOS/Linux are shown as coming soon.
 
