@@ -1,6 +1,6 @@
 # Marketing website
 
-Static marketing site served at https://discordy.voics.nl (bucket `discordy-site` in cluster MinIO).
+Static marketing site served at https://voics.nl (bucket `discordy-site` in cluster MinIO).
 
 ## Layout
 - `brand.json`: the single source of branding (name, tagline, description, domain, logo path, colors, download links, contact, year).

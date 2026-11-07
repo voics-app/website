@@ -4,7 +4,7 @@
   "heroTitle": "Where your crew hangs out",
   "heroSub": "Text, voice and video for the people you actually talk to. Jump into a call in one click, share your screen in up to 4K, and keep your DMs between you with end-to-end encryption.",
   "description": "{{name}} is a community chat platform with text, voice and video calls up to 4K, servers, roles, moderation and end-to-end encrypted direct messages.",
-  "domain": "discordy.voics.nl",
+  "domain": "voics.nl",
   "logo": "assets/logo.svg",
   "colors": {
     "accent": "#6c63ff",
@@ -34,7 +34,7 @@
   "downloads": {
     "available": true,
     "releasesUrl": "",
-    "windows": "https://discordy-updates.voics.nl/Voics-Setup-latest.exe",
+    "windows": "https://updates.voics.nl/Voics-Setup-latest.exe",
     "macos": "",
     "linux": "",
     "requestAccessUrl": "mailto:hello@voics.nl?subject=Early%20access"
