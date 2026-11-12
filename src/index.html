@@ -18,6 +18,7 @@
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
+    <symbol id="android" viewBox="0 0 24 24"><path fill="currentColor" d="M6 9h12v8a1 1 0 0 1-1 1h-1v3h-2v-3h-4v3H8v-3H7a1 1 0 0 1-1-1zM3 9h2v7H3zM19 9h2v7h-2zM6.300 8a5.800 5.800 0 0 1 11.400 0zM9.500 5.500a.800.800 0 1 0 0-.010zM14.500 5.500a.800.800 0 1 0 0-.010zM7.600 2.300l.900-.500 1.200 2-.900.500zM16.400 2.300l-.900-.500-1.200 2 .900.500z"/></symbol>
     <symbol id="win" viewBox="0 0 24 24"><path fill="currentColor" d="M3 5.5l7.5-1v7H3zM11.5 4.4L21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></symbol>
     <symbol id="apple" viewBox="0 0 24 24"><path fill="currentColor" d="M3 4h18v12H3zM2 18h20v2H2z"/></symbol>
     <symbol id="tux" viewBox="0 0 24 24"><path fill="currentColor" d="M3 4h18a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm3 4l4 4-4 4 1.400 1.400L12.800 12 7.400 6.600zm6 7v2h6v-2z"/></symbol>
@@ -64,6 +65,7 @@
     <p class="sub">{{heroSub}}</p>
     <div class="ctas">
       <a class="btn white" href="{{downloads.windows}}" download><svg aria-hidden="true"><use href="#win"/></svg>Download for Windows</a>
+      <a class="btn white" href="{{downloads.android}}" download><svg aria-hidden="true"><use href="#android"/></svg>Download for Android</a>
       <a class="btn dark" href="#features">Learn more</a>
     </div>
 
@@ -191,7 +193,8 @@
   <div class="wrap rv">
     <h2>Ready to start the conversation?</h2>
     <p>Grab the app, make a server in a minute and invite your people.</p>
-    <div class="ctas"><a class="btn white" href="{{downloads.windows}}" download><svg aria-hidden="true"><use href="#win"/></svg>Download for Windows</a></div>
+    <div class="ctas"><a class="btn white" href="{{downloads.windows}}" download><svg aria-hidden="true"><use href="#win"/></svg>Download for Windows</a>
+      <a class="btn white" href="{{downloads.android}}" download><svg aria-hidden="true"><use href="#android"/></svg>Download for Android</a></div>
     <div class="soon">
       <span><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#apple"/></svg>macOS <small>Coming soon</small></span>
       <span><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#tux"/></svg>Linux <small>Coming soon</small></span>
