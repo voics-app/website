@@ -5,5 +5,5 @@ pre-push:
   commands:
     check:
       run: npm run build && npm run check
-    browser-tests:
-      run: npx playwright test
+    tests:
+      run: npm run test:unit && npx playwright test
