@@ -27,10 +27,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Install browser-test dependencies
+        run: npm ci
       - name: Render site from brand.json
         run: npm run build
       - name: Check for hard-coded brand and unresolved tokens
         run: npm run check
+      - name: Install headless Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Test public template previews
+        run: npx playwright test
       - name: Upload built site
         uses: actions/upload-artifact@v4
         with:

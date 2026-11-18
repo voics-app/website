@@ -22,6 +22,22 @@ The Windows Download buttons link to `downloads.windows` and the Android buttons
 ## Invite page
 `npm run build` copies `../gitops/site/invite/index.html` into `dist/invite/index.html` so it is always published with the site (skipped with a warning if the gitops checkout is absent).
 
+## Server template page
+
+`template.html?code=<code>` previews a shared server template without signing
+in. It uses `apiUrl` and `protocolScheme` from `brand.json`, shows saved roles
+and channels, and offers an explicit app link. The page never creates a server
+or launches the app automatically. Invalid/deleted links cannot open the app;
+connection errors offer retry. API support is delivered in the api#44 completion
+increment and contracts#43. The existing static-object route serves the page;
+no ingress rewrite is needed.
+
+For browser tests, run `npm ci`, `npx playwright install chromium`, then
+`npm test`. Six headless Chromium checks cover desktop/mobile previews,
+untrusted text, explicit deep links, deleted/invalid links and retry. They use
+intercepted API responses and never contact the live API. Screenshots are saved
+under `output/playwright/`. CI installs Chromium and runs the same suite.
+
 ## Deploy
 ```
 npm run build
@@ -34,7 +50,8 @@ The script uploads `dist/` as a temporary ConfigMap and runs a Job (`pgsty/mc`, 
 
 ## Git hooks
 
-Tests run locally, not in CI. Install [lefthook](https://github.com/evilmartians/lefthook) once and run `lefthook install` to enable the pre-push hook in `lefthook.yml`: it runs this repository's lint and unit tests before every push. CI repeats only the slim gate on pull requests. Skip once with `LEFTHOOK=0 git push`.
+Install [lefthook](https://github.com/evilmartians/lefthook) once and run `lefthook install` to enable the pre-push hook in `lefthook.yml`: it builds, checks and runs the unit/browser tests before every push. CI repeats those checks. Skip once with `LEFTHOOK=0 git push` after running the same checks manually.
+
 ## Passkey ceremony
 
 `src/passkeys/index.html` is a dedicated desktop WebAuthn ceremony surface. It receives public credential options through an exact-origin/source/nonce bound handshake with its loopback opener. Passwords, MFA tickets and session tokens never reach this page. It calls real `navigator.credentials.create/get`, returns the signed credential to that opener and makes no API request. The app then asks its API to verify the credential.
@@ -54,4 +71,4 @@ X-Content-Type-Options: nosniff
 
 HTML includes a restrictive CSP as a fallback, but `frame-ancestors` requires the HTTP header. Do not add analytics or third-party resources. Do not apply a COOP `same-origin` policy here: it severs the cross-origin opener and prevents completion. The website never fetches loopback; it posts a message to its opener, which sends a same-origin result POST to the app. This is verified in Chrome without disabling private-network security features.
 
-`npm test` checks JSON/binary conversion and the loopback/RP request boundary. The paired client browser suite runs this built page with the intended headers, a real CDP virtual authenticator and an isolated API/PostgreSQL verifier. See client `docs/passkeys.md`. Browser cancellation, denial, unsupported WebAuthn and tab closure retain authenticator/backup-code recovery in the app. Physical OS/authenticator support and mobile native bridges are separate acceptance work.
+`npm run test:unit` checks JSON/binary conversion and the loopback/RP request boundary; `npm test` runs these checks and the template browser suite. The paired client browser suite runs this built page with the intended headers, a real CDP virtual authenticator and an isolated API/PostgreSQL verifier. See client `docs/passkeys.md`. Browser cancellation, denial, unsupported WebAuthn and tab closure retain authenticator/backup-code recovery in the app. Physical OS/authenticator support and mobile native bridges are separate acceptance work.
