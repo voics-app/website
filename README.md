@@ -35,3 +35,23 @@ The script uploads `dist/` as a temporary ConfigMap and runs a Job (`pgsty/mc`, 
 ## Git hooks
 
 Tests run locally, not in CI. Install [lefthook](https://github.com/evilmartians/lefthook) once and run `lefthook install` to enable the pre-push hook in `lefthook.yml`: it runs this repository's lint and unit tests before every push. CI repeats only the slim gate on pull requests. Skip once with `LEFTHOOK=0 git push`.
+## Passkey ceremony
+
+`src/passkeys/index.html` is a dedicated desktop WebAuthn ceremony surface. It receives public credential options through an exact-origin/source/nonce bound handshake with its loopback opener. Passwords, MFA tickets and session tokens never reach this page. It calls real `navigator.credentials.create/get`, returns the signed credential to that opener and makes no API request. The app then asks its API to verify the credential.
+
+Serve `/passkeys/index.html` at the **exact HTTPS origin** configured as the API's `WEBAUTHN_RP_ORIGIN` and desktop `DISCORDY_PASSKEY_ORIGIN`; use the same RP ID in API and desktop. The page is available as an explicit object path, so no directory-index rewrite is required. Deployment and runtime configuration are separate operator work; adding these files does not enable a production service.
+
+Required response policy for `/passkeys/*` (configure only this path at the existing web server/CDN):
+
+```text
+Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'
+Cross-Origin-Opener-Policy: unsafe-none
+X-Frame-Options: DENY
+Referrer-Policy: no-referrer
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+```
+
+HTML includes a restrictive CSP as a fallback, but `frame-ancestors` requires the HTTP header. Do not add analytics or third-party resources. Do not apply a COOP `same-origin` policy here: it severs the cross-origin opener and prevents completion. The website never fetches loopback; it posts a message to its opener, which sends a same-origin result POST to the app. This is verified in Chrome without disabling private-network security features.
+
+`npm test` checks JSON/binary conversion and the loopback/RP request boundary. The paired client browser suite runs this built page with the intended headers, a real CDP virtual authenticator and an isolated API/PostgreSQL verifier. See client `docs/passkeys.md`. Browser cancellation, denial, unsupported WebAuthn and tab closure retain authenticator/backup-code recovery in the app. Physical OS/authenticator support and mobile native bridges are separate acceptance work.
