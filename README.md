@@ -22,6 +22,22 @@ The Windows Download buttons link to `downloads.windows` and the Android buttons
 ## Invite page
 `npm run build` copies `../gitops/site/invite/index.html` into `dist/invite/index.html` so it is always published with the site (skipped with a warning if the gitops checkout is absent).
 
+## Server template page
+
+`template.html?code=<code>` previews a shared server template without signing
+in. It uses `apiUrl` and `protocolScheme` from `brand.json`, shows saved roles
+and channels, and offers an explicit app link. The page never creates a server
+or launches the app automatically. Invalid/deleted links cannot open the app;
+connection errors offer retry. API support is delivered in the api#44 completion
+increment and contracts#43. The existing static-object route serves the page;
+no ingress rewrite is needed.
+
+For browser tests, run `npm ci`, `npx playwright install chromium`, then
+`npm test`. Six headless Chromium checks cover desktop/mobile previews,
+untrusted text, explicit deep links, deleted/invalid links and retry. They use
+intercepted API responses and never contact the live API. Screenshots are saved
+under `output/playwright/`. CI installs Chromium and runs the same suite.
+
 ## Deploy
 ```
 npm run build
@@ -34,4 +50,4 @@ The script uploads `dist/` as a temporary ConfigMap and runs a Job (`pgsty/mc`, 
 
 ## Git hooks
 
-Tests run locally, not in CI. Install [lefthook](https://github.com/evilmartians/lefthook) once and run `lefthook install` to enable the pre-push hook in `lefthook.yml`: it runs this repository's lint and unit tests before every push. CI repeats only the slim gate on pull requests. Skip once with `LEFTHOOK=0 git push`.
+Install [lefthook](https://github.com/evilmartians/lefthook) once and run `lefthook install` to enable the pre-push hook in `lefthook.yml`: it builds, checks and browser-tests the site before every push. CI repeats those checks. Skip once with `LEFTHOOK=0 git push` after running the same checks manually.

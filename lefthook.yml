@@ -4,4 +4,6 @@ pre-push:
   parallel: false
   commands:
     check:
-      run: pnpm run check
+      run: npm run build && npm run check
+    browser-tests:
+      run: npx playwright test
