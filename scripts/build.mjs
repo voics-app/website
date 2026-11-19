@@ -4,6 +4,7 @@ import { readFileSync, writeFileSync, mkdirSync, cpSync, rmSync, readdirSync, st
 import { join, extname } from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import './check-friend-invite.mjs';
 
 const root = join(fileURLToPath(import.meta.url), '..', '..');
 const brand = JSON.parse(readFileSync(join(root, 'brand.json'), 'utf8'));
