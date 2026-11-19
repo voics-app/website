@@ -42,7 +42,7 @@ if (existsSync(invite)) { mkdirSync(join(out, 'invite'), { recursive: true }); c
 else console.warn('warning: ../gitops/site/invite/index.html not found; dist/invite not populated');
 const friendInvite = join(gitops, 'site', 'friend-invite', 'index.html');
 if (existsSync(friendInvite)) { mkdirSync(join(out, 'friend-invite'), { recursive: true }); cpSync(friendInvite, join(out, 'friend-invite', 'index.html')); }
-else console.warn('warning: ../gitops/site/friend-invite/index.html not found; dist/friend-invite not populated');
+else console.warn('warning: gitops friend-invite page not found; using checked-in site copy');
 // Cloudflare caches .css/.js/.svg for hours, so a deploy would pair new HTML with old styles.
 // Local asset references in the site's HTML get ?v=<content hash>, which changes whenever the file does.
 for (const f of readdirSync(out).filter((f) => extname(f) === '.html')) {
