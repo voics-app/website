@@ -1,0 +1,22 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Friend invite</title>
+<style>body{font:16px system-ui,sans-serif;background:#151522;color:#f4f3fa;display:grid;place-items:center;min-height:100vh;margin:0}main{max-width:28rem;padding:2rem;text-align:center}p{color:#c0bfd0;line-height:1.5}a{display:inline-block;background:#8175eb;color:white;text-decoration:none;border-radius:.6rem;padding:.8rem 1.2rem}a:focus-visible{outline:3px solid white;outline-offset:3px}[hidden]{display:none}</style>
+</head>
+<body><main><h1>Friend invite</h1><p id="message">Open the app to send a friend request. Sign in first if needed.</p><a id="open" hidden>Open app</a><p>Install the app first if it does not open, then return to this link.</p></main>
+<script>
+(function () {
+  'use strict';
+  var token = location.hash.slice(1);
+  if (!/^[A-Za-z0-9_-]{16,128}$/.test(token)) { document.getElementById('message').textContent = 'This link is invalid.'; return; }
+  var link = 'voics://friend-invite/' + token;
+  var open = document.getElementById('open');
+  open.href = link;
+  open.hidden = false;
+  setTimeout(function () { location.href = link; }, 400);
+})();
+</script></body></html>
