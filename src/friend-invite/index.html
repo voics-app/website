@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -13,7 +13,7 @@
   'use strict';
   var token = location.hash.slice(1);
   if (!/^[A-Za-z0-9_-]{16,128}$/.test(token)) { document.getElementById('message').textContent = 'This link is invalid.'; return; }
-  var link = 'voics://friend-invite/' + token;
+  var link = '{{protocolScheme}}://friend-invite/' + token;
   var open = document.getElementById('open');
   open.href = link;
   open.hidden = false;
