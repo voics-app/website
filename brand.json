@@ -38,7 +38,7 @@
     "releasesUrl": "",
     "windows": "https://updates.voics.nl/Voics-Setup-latest.exe",
     "android": "https://updates.voics.nl/Voics-latest.apk",
-    "macos": "",
+    "macos": "https://updates.voics.nl/Voics-latest.dmg",
     "linux": "",
     "requestAccessUrl": "mailto:hello@voics.nl?subject=Early%20access"
   },
