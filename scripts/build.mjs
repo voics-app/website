@@ -4,6 +4,7 @@ import { readFileSync, writeFileSync, mkdirSync, cpSync, rmSync, readdirSync, st
 import { join, extname } from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import './check-friend-invite.mjs';
 
 const root = join(fileURLToPath(import.meta.url), '..', '..');
 const brand = JSON.parse(readFileSync(join(root, 'brand.json'), 'utf8'));
@@ -36,9 +37,13 @@ mkdirSync(out, { recursive: true });
 })(join(root, 'src'), '');
 // The invite landing page is owned by the gitops repo; publish it together with the site so a deploy
 // never leaves a different /invite/ behind. Skipped (with a warning) when the sibling checkout is absent (e.g. CI).
-const invite = join(root, '..', 'gitops', 'site', 'invite', 'index.html');
+const gitops = process.env.GITOPS_DIR || join(root, '..', 'gitops');
+const invite = join(gitops, 'site', 'invite', 'index.html');
 if (existsSync(invite)) { mkdirSync(join(out, 'invite'), { recursive: true }); cpSync(invite, join(out, 'invite', 'index.html')); }
 else console.warn('warning: ../gitops/site/invite/index.html not found; dist/invite not populated');
+const friendInvite = join(gitops, 'site', 'friend-invite', 'index.html');
+if (existsSync(friendInvite)) { mkdirSync(join(out, 'friend-invite'), { recursive: true }); cpSync(friendInvite, join(out, 'friend-invite', 'index.html')); }
+else console.warn('warning: gitops friend-invite page not found; using checked-in site copy');
 // Cloudflare caches .css/.js/.svg for hours, so a deploy would pair new HTML with old styles.
 // Local asset references in the site's HTML get ?v=<content hash>, which changes whenever the file does.
 for (const f of readdirSync(out).filter((f) => extname(f) === '.html')) {
