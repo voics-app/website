@@ -44,14 +44,6 @@ jobs:
           name: site-dist
           path: dist
 
-  deploy:
-    name: Publish to voics.nl
-    # main and release tags go live; other branches only build. The invite page in the same bucket is
-    # published by the gitops repo and is left alone (minio-publish never removes objects).
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v'))
-    needs: [build]
-    uses: voics-app/.github/.github/workflows/minio-publish.yml@main
-    with:
-      artifact: site-dist
-      bucket: discordy-site
-      short-cache: index.html
+  # Publishing to voics.nl happens in the private gitops repo (workflow publish-public): this repo is public and the
+  # in-cluster runner that reaches MinIO does not take jobs from public repositories. It picks up the site-dist
+  # artifact of the newest successful push to main or a v* tag within 10 minutes.
