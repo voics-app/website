@@ -1,0 +1,13 @@
+.template-page{max-width:900px}
+.template-page h1,.template-page li{overflow-wrap:anywhere}
+.template-page [hidden]{display:none!important}
+.template-actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin:24px 0}
+.template-page .btn.dark{color:var(--dtext)}
+.template-page button:disabled{cursor:wait;opacity:.65}
+.template-roles{display:flex;flex-wrap:wrap;gap:8px 24px}
+.template-channels{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px 32px;margin:20px 0 40px}
+.template-channels h3{font-size:1rem;line-height:1.4}
+.template-channels ul{margin:8px 0;padding-left:1.25em}
+.template-channel-kind{color:var(--muted);font-size:.875rem;margin-left:8px}
+.template-page :focus-visible{outline-color:var(--accent-strong)}
+@media(prefers-reduced-motion:reduce){.template-page .btn{transition:none;transform:none}}

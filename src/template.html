@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="{{colors.accentDeep}}">
+<title>Server template | {{name}}</title>
+<link rel="icon" href="{{logo}}" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family={{fonts.heading}}:wght@700;800;900&family={{fonts.body}}:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="template.css">
+<script src="template.js" type="module"></script>
+</head>
+<body class="docpage">
+<a class="skip" href="#main">Skip to template</a>
+<header class="site solid">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="{{logo}}" alt="" width="40" height="40"><span>{{name}}</span></a>
+    <nav class="main open-static" aria-label="Main"><ul><li><a href="index.html#download">Download</a></li><li><a href="{{pages.support}}">Support</a></li></ul></nav>
+  </div>
+</header>
+<main id="main" class="doc wrap template-page" data-api-url="{{apiUrl}}" data-app-scheme="{{protocolScheme}}">
+  <h1 id="template-name">Server template</h1>
+  <p id="template-description" class="meta">Preview the channels and roles for your new server.</p>
+  <p id="template-status" role="status" aria-live="polite">Loading template…</p>
+  <button id="template-retry" class="btn dark" type="button" hidden>Try again</button>
+  <section id="template-preview" aria-label="Template structure" hidden>
+    <p id="template-counts" class="meta"></p>
+    <div class="template-actions"><a id="template-open" class="btn dark">Open in {{name}}</a><a href="index.html#download">Download {{name}}</a></div>
+    <p class="meta">This creates a new server owned by you. Members and messages are not copied, and you do not join the original server.</p>
+    <section id="template-roles-section"><h2>Roles</h2><ul id="template-roles" class="template-roles"></ul></section>
+    <h2>Channels</h2><div id="template-channels" class="template-channels"></div>
+  </section>
+  <noscript><p>Enable JavaScript to preview this template, or paste this page’s link into the app’s Create server dialog.</p></noscript>
+</main>
+</body>
+</html>
