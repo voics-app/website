@@ -17,7 +17,7 @@ Static marketing site served at https://voics.nl (bucket `discordy-site` in clus
 `src/privacy.html` and `src/support.html` are plain pages built like the home page (links come from `pages.*` and `contactEmail` in `brand.json`; English in `privacy.html` and Dutch in `privacy-nl.html`, linked to each other; the rest of the site is English only). The privacy policy is final text (company, address, KvK number and minimum age come from the owner). The text must be kept in step with the apps and infrastructure: data stored, retention, delivery modes, push, email (Brevo, Cloudflare Email Routing) and other third parties are described from the code, the gitops config and the backup runbook. The KvK number was taken from a third-party directory, not the KvK register, and should be re-checked there.
 
 ## Downloads
-The Windows Download buttons link to `downloads.windows` and the Android buttons to `downloads.android` in brand.json (stable URLs of the latest installer and APK; the APK is published by the client `android-apk` workflow). macOS/Linux are shown as coming soon.
+The Windows Download buttons link to `downloads.windows` and the Android buttons to `downloads.android` in brand.json (stable URLs of the latest installer and APK; the APK is built by the client `android-apk` workflow and published by gitops `publish-public`). macOS/Linux are shown as coming soon.
 
 ## Invite page
 `npm run build` copies `../gitops/site/invite/index.html` into `dist/invite/index.html` so it is always published with the site (skipped with a warning if the gitops checkout is absent).
@@ -39,6 +39,9 @@ intercepted API responses and never contact the live API. Screenshots are saved
 under `output/playwright/`. CI installs Chromium and runs the same suite.
 
 ## Deploy
+A push to `main` or a `v*` tag builds the `site-dist` artifact; the private gitops workflow `publish-public` publishes it to `discordy-site` within 10 minutes (this repo is public, and the in-cluster runner that reaches MinIO only serves private repositories). Run `publish-public` by hand in gitops to publish right away.
+
+By hand, from a machine with cluster access:
 ```
 npm run build
 KUBECONFIG=~/.kube/discordy-gen-serv.yaml bash deploy/deploy.sh
